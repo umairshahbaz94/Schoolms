@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SMS.Entities.headvm>
+
+@{
+    ViewBag.Title = "ListsubHead1Codes";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>List-subHead2-Name</h2>
+
+<p>
+    @Html.ActionLink("Create New", "addsubhead3", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                <label>Head Name</label>
+            </th>
+            <th>
+                <label>Subhead1 Name</label>
+            </th>
+            <th>
+                <label>Subhead2 Name</label>
+            </th>
+            <th>
+                <label>Subhead3 Name</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MHeadCode.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subHead1Code.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subHead2Code.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubHead3Code.Description)
+            </td>
+            
+            <td>
+
+                <a href="@Url.Action("updatesubhead3","subHead1Codes" , new {id = item.SubHead3Code.SubHeadCode3  })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatesubhead3","subHead1Codes" , new {id = item.SubHead3Code.SubHeadCode3  })" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatesubhead3","subHead1Codes" , new { id = item.SubHead3Code.SubHeadCode3 })" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+
+            </td>
+        </tr>
+
+
+        }
+
+    </tbody>
+
+</table>
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+      });</script>
+}

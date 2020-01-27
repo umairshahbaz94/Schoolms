@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SMS.Entities.Section>
+
+@{
+    ViewBag.Title = "listingsection";
+    Layout = "~/Views/Shared/_Layout_new.cshtml";
+}
+
+<h2>Listing-Section</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSection", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table table-bordered " id="section">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sectionName)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sectionName)
+            </td>
+            
+           
+            <td>
+
+                <a href="@Url.Action("EditSection","Section" , new {  id = item.id  })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                
+              
+
+
+
+            </td>
+
+        </tr>
+        }
+    </tbody>
+
+
+
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#section').DataTable();
+        });
+    </script>
+
+
+}

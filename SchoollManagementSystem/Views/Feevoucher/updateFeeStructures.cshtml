@@ -1,0 +1,148 @@
+﻿@model SMS.Entities.FeeScheduleStructure
+
+@{
+    ViewBag.Title = "addFee-Structures";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>@ViewBag.Title </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.FeeStrID)
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.FeeVoucherTypeCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.FeeVoucherTypeCode, new SelectList(ViewBag.vouchertype, "FeeVoucherTypeCode", "feeVoucherType",Model.FeeVoucherTypeCode), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FeeVoucherTypeCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select Brach</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.FVBranchCode, new SelectList(ViewBag.branchlist, "id  ", "branchname",Model.FVBranchCode), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FVBranchCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select Class*</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.FVClassCode, new SelectList(ViewBag.getclass, "id", "classname",Model.FVClassCode), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FVClassCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select Session *</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.FVSessionCode, new SelectList(ViewBag.session, "id", "Sessionname",Model.FVSessionCode), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FVSessionCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select category *</label>
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(x => x.FVCategoryCode, new SelectList(ViewBag.catlist, "id", "CategoryName ",Model.FVCategoryCode), "Select Any one", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.FVCategoryCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Select Section</label>
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(x => x.FVSectionCode, new SelectList(ViewBag.section, "id", "sectionName",Model.FVSectionCode), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FVSectionCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label> Select term  *</label>
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(x => x.FVTermCode, new SelectList(ViewBag.termname, "id", "TermName",Model.FVTermCode), "Select Any one", new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVDueDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVDueDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVDueDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVFineLumsumValue, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVFineLumsumValue, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVFineLumsumValue, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVFinePerDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVFinePerDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVFinePerDay, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVAlertDays, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVAlertDays, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVAlertDays, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVAccountno, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVAccountno, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVAccountno, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVAccountTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVAccountTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVAccountTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FVdiscription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FVdiscription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FVdiscription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-12 form-group mg-t-8">
+            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">save</button>
+
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

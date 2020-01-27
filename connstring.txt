@@ -1,0 +1,1 @@
+      connectionString="Data Source=DESKTOP-V8TEREV\SQLEXPRESS;Initial Catalog=SchoolMSDb;Integrated Security=false ;user id=sa;password=ali"

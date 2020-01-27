@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SMS.Entities.Student>
+
+@{
+    ViewBag.Title = "Studentslist";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Studentslist</h2>
+
+<p>
+    @Html.ActionLink("Create", "AddStudent", null,new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-bordered " id="Table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <th>
+                <label>AdmissionNo</label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmissionFormNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+
+                <a href="@Url.Action("EditStudent","student" , new { id = item.ID })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("EditStudent","student" , new { id = item.ID })" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("EditStudent","student" , new { id = item.ID })" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+                |
+                <a href="@Url.Action("imagedetails","Student" , new { id = item.ID })" class="btn btn-danger">
+                    <span class="fas fa-image mr-2"></span>
+
+                </a>
+            </td>
+          
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#Table').DataTable();
+      });</script>
+}

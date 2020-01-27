@@ -1,0 +1,211 @@
+﻿@model IEnumerable<SMS.Entities.StudentfeesStatusmodel>
+
+
+<h2>StudentFeesStatus</h2>
+
+
+<div class="col-12 form-group mg-t-8">
+
+        
+        <a href="~/reportsform/ClassStatuslocalV.aspx?@ViewBag.name" class="btn btn-primary"><span class="fa fa-print">Print Record</span></a>
+
+
+
+    </div>
+
+
+
+
+
+
+<br />
+<table class="table table  table-bordered" id="myTable">
+
+
+    <thead>
+        <tr>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                <label>VNO</label>
+            </th>
+
+            <th> @Html.DisplayNameFor(model => model.FVAccountno)</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepAmount)
+            </th>
+            <th>
+                <label>VNO</label>
+            </th>
+            <th> @Html.DisplayNameFor(model => model.Accountnosharedv)</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DueDatev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalAmtsharedv)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SStatusReview)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoucherNO)
+            </td>
+
+
+            <td> @Html.DisplayFor(model => item.FVAccountno)</td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoucherNOS)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Accountnosharedv)
+            </td>
+
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDatev)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.totalAmtsharedv)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SStatusReview)
+            </td>
+            <td>
+                <a class="btn btn-danger Edit" data-id="@item.Id " data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+
+            </td>
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div id="con"></div>
+
+
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+    <script>
+        $(".Edit").click(function () {
+           
+            $.ajax({
+
+                url: "/Feevoucher/updatestatus/",
+                method: "get",
+                data: {
+                    ID: $(this).attr("data-id")
+                }
+            }
+            ).done(function (response) {
+                $("#con").html(response);
+            })
+        });
+    </script>
+
+    <script>
+
+        $(".update").click(function () {
+            
+            debugger;
+            $.ajax({
+                url: "/Feevoucher/updatestatus",
+                type: "post",
+                data: $("#updateform").serialize()
+
+
+            }).done(function (response) {
+
+                debugger;
+
+                if (response.success) {
+
+                    $(".done").html(response.Message)
+                }
+                else {
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1CE71F9-30E5-42FF-B2A8-6117513EA04B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.Entities</RootNamespace>
+    <AssemblyName>SMS.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="allpics.cs" />
+    <Compile Include="allsemesterdata.cs" />
+    <Compile Include="allSemesterfeesRecord.cs" />
+    <Compile Include="allsemesterRecords.cs" />
+    <Compile Include="AuthorityDetailTbl.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="Branch.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Challanfees.cs" />
+    <Compile Include="configfile.cs" />
+    <Compile Include="courseclassmapping.cs" />
+    <Compile Include="DiscountAdvancetbl.cs" />
+    <Compile Include="Discounttbl.cs" />
+    <Compile Include="discountviewVm.cs" />
+    <Compile Include="discountvm.cs" />
+    <Compile Include="DMSuser.cs" />
+    <Compile Include="feeeheadvm.cs" />
+    <Compile Include="FeeScheduleStructure.cs" />
+    <Compile Include="feesreport.cs" />
+    <Compile Include="FeeVoucherHeadDetail.cs" />
+    <Compile Include="FeeVoucherType.cs" />
+    <Compile Include="fineHead.cs" />
+    <Compile Include="finelist.cs" />
+    <Compile Include="headvm.cs" />
+    <Compile Include="Masterstudentcurrentstatus.cs" />
+    <Compile Include="Programdegree.cs" />
+    <Compile Include="ResultSheet.cs" />
+    <Compile Include="setVoucherpercent.cs" />
+    <Compile Include="Smslogo.cs" />
+    <Compile Include="statustbl.cs" />
+    <Compile Include="StudentFeesStatus.cs" />
+    <Compile Include="StudentfeesStatusmodel.cs" />
+    <Compile Include="SubHead2Code.cs" />
+    <Compile Include="classes.cs" />
+    <Compile Include="classesStudentMapping.cs" />
+    <Compile Include="MHeadCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Section.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentBranchMapping.cs" />
+    <Compile Include="StudentCurrentStatus.cs" />
+    <Compile Include="StudentDisplayVM.cs" />
+    <Compile Include="SubHead1Code.cs" />
+    <Compile Include="SubHead3Code.cs" />
+    <Compile Include="Subjects.cs" />
+    <Compile Include="Teacher.cs" />
+    <Compile Include="teachersubjectCourse.cs" />
+    <Compile Include="Term.cs" />
+    <Compile Include="vocuherheadvm.cs" />
+    <Compile Include="VoucherAccountv1andV2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

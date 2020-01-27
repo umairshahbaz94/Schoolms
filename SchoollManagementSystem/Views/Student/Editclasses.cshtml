@@ -1,0 +1,87 @@
+﻿@model SMS.Entities.StudentCurrentStatus
+
+@{
+    ViewBag.Title = "Editclasses";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Editclasses</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Edit Student class</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudentID, htmlAttributes: new { @class = "control-label col-md-2 " })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StudentID, new { htmlAttributes = new  { @class = "form-control", @readonly = "readonly"    } })
+            @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SectionID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("cbosection", new SelectList(ViewBag.section, "id", "sectionName", Model.SectionID), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SectionID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SessionID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("cbosession", new SelectList(ViewBag.session, "id", "Sessionname", Model.SessionID), "Select Any one", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.SessionID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2"> class Name</label>
+        <div class="col-md-10">
+
+            @Html.DropDownList("cboclass", new SelectList(ViewBag.getclass, "id", "classname", Model.classesID), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.classesID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.TermID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("cboterm", new SelectList(ViewBag.termname, "id", "TermName", Model.TermID), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TermID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.BranchID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("cbobranch", new SelectList(ViewBag.branchlist, "id", "branchname", Model.BranchID), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TermID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("cbocateogry", new SelectList(ViewBag.catlist, "id", "CategoryName", Model.TermID), "Select Any one", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TermID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

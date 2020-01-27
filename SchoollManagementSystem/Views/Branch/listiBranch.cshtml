@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SMS.Entities.Branch>
+
+@{
+    ViewBag.Title = "listiBranch";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>List Branch</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Addbranch", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table  table table-bordered " id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.branchname)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.branchname)
+                </td>
+
+               
+                <td>
+
+                    <a href="@Url.Action("Editbranch","Branch" , new { id = item.ID  })" class="btn btn-danger">
+                        <span class="fas fa-edit mr-2"></span>
+
+                    </a>
+                    |
+                    <a href="@Url.Action("Editbranch","Branch" , new {  id = item.ID })" class="btn btn-danger">
+                        <span class="fas fa-trash mr-2"></span>
+
+                    </a>
+                    |
+                    <a href="@Url.Action("Editbranch","Branch"  , new { id = item.ID })" class="btn btn-danger">
+                        <span class="fas fa-list mr-2"></span>
+
+                    </a>
+
+
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+      
+</table>
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+      });</script>
+}

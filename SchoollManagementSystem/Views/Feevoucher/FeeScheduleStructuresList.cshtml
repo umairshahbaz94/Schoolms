@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SMS.Entities.StudentDisplayVM>
+
+
+@{
+    ViewBag.Title = "Fee_Schedule_Structures_List";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>FeeSchedule-StructuresList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "addFeeStructures", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Classes.classname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.session.Sessionname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.term.TermName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeScheduleStructure.FVDueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeScheduleStructure.FVAccountTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeScheduleStructure.FVdiscription)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classes.classname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.session.Sessionname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.term.TermName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeScheduleStructure.FVDueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeScheduleStructure.FVAccountTitle)
+            </td>
+
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeScheduleStructure.FVdiscription)
+            </td>
+
+
+
+
+
+           
+
+            <td>
+
+                <a href="@Url.Action("updateFeeStructures","Feevoucher" , new {   id = item.FeeScheduleStructure.FeeStrID })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updateFeeStructures","Feevoucher" , new {  id = item.FeeScheduleStructure.FeeStrID })" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updateFeeStructures","Feevoucher"  , new {   id = item.FeeScheduleStructure.FeeStrID })" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+}   

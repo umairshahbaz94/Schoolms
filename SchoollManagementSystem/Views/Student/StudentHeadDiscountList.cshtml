@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SMS.Entities.discountviewVm>
+
+@{
+    ViewBag.Title = "StudentHeadDiscountList";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>StudentHeadDiscountList</h2>
+
+
+<table  class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.student.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.term.TermName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Head3Code.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeVoucherType.feeVoucherType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discounttbl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.student.RollNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.student.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.term.TermName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Head3Code.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeeVoucherType.feeVoucherType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discounttbl.discountAmount)
+                </td>
+                <td>
+                    <a href="@Url.Action("StudentHeadDiscountupdate","student" , new {  studentid = item.discounttbl.Stdid, termid = item.discounttbl.tmId, vocid = item.discounttbl.vocid, headco = item.discounttbl.headcode  })" class="btn btn-danger">
+                        <span class="fas fa-edit mr-2"></span>
+
+                    </a>
+                    @*@Html.ActionLink("Edit", "StudentHeadDiscountupdate", new { studentid = item.discounttbl.Stdid, termid = item.discounttbl.tmId, vocid = item.discounttbl.vocid, headco = item.discounttbl.headcode }) |
+                    @Html.ActionLink("Details", "Details", new { studentid = item.discounttbl.Stdid, termid = item.discounttbl.tmId, vocid = item.discounttbl.vocid, headco = item.discounttbl.headcode }) |
+                    @Html.ActionLink("Delete", "Delete", new { studentid = item.discounttbl.Stdid, termid = item.discounttbl.tmId, vocid = item.discounttbl.vocid, headco = item.discounttbl.headcode })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+} 

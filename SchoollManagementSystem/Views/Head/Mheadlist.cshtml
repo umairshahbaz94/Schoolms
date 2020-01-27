@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SMS.Entities.MHeadCode>
+
+@{
+    ViewBag.Title = "Mheadlist";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Mhead_Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "addhead", null,new { @class = "btn btn-primary" })
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th>Action</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            
+            <td>
+
+                <a href="@Url.Action("updatehead","Head" , new {  id = item.MainHeadCode })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatehead","Head" , new {   id = item.MainHeadCode})" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatehead","Head"  , new {    id = item.MainHeadCode})" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+      });</script>
+}

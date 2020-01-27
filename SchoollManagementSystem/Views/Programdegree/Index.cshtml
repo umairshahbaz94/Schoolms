@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SMS.Entities.Programdegree>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddProgram")
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramAddDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgramUpdateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramAddDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProgramUpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Updateprogram", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+}

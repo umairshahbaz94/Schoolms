@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "SearchClassstatus";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Find-Class-status</h2>
+
+<div class="heading-layout1">
+    <div class="item-title">
+        <h3> @ViewBag.mainheading </h3>
+    </div>
+
+</div>
+
+<br />
+
+<form class="new-added-form" action="@Url.Action("FindByHead","Recordhead")" target="_blank">
+    <div class="row ">
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Class*</label>
+            @Html.DropDownList("cboclass", new SelectList(ViewBag.getclass, "id", "classname"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Session *</label>
+            @Html.DropDownList("cbosession", new SelectList(ViewBag.session, "ID", "Sessionname"), "Select Any one", new { @class = "form-control" })
+
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select category *</label>
+            @Html.DropDownList("cbocategory", new SelectList(ViewBag.catlist, "id", "CategoryName "), "Select Any one", new { @class = "form-control" })
+
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label> Select Semester  *</label>
+            @Html.DropDownList("cboterm", new SelectList(ViewBag.termname, "id", "TermName"), "Select Any one", new { @class = "form-control" })
+
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Section</label>
+            @Html.DropDownList("cbosection", new SelectList(ViewBag.section, "id", "sectionName"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Program</label>
+            @Html.DropDownList("cboprogram", new SelectList(ViewBag.programall, "id", "Pname"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Voucher</label>
+            @Html.DropDownList("cbovoucher", new SelectList(ViewBag.headv, "FeeVoucherTypeCode", "feeVoucherType"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Head</label>
+            @Html.DropDownList("cbohead", new SelectList(ViewBag.head, "SubHeadCode3", "Description"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Start Date</label>
+            <input type="date" class="form-control" name="start" required />
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select End Date</label>
+            <input type="date" class="form-control" name="End" required />
+        </div>
+
+        @*<div class="col-lg-6 col-12 form-group mg-t-30">
+            <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
+            <input type="file" class="form-control-file">
+        </div>*@
+        <div class="col-12 form-group mg-t-8">
+            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Submit</button>
+
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SMS.Entities.discountvm>
+
+@{
+    ViewBag.Title = "Student-Head-Discount";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<a href="/Student/StudentHeadDiscount/?@ViewBag.getlink"><span class="fa fa-percent btn btn-primary">add Shared Discount</span></a>
+<a href="/Student/StudentHeadDiscount/?@ViewBag.getlink2"><span class="fa fa-percent btn btn-primary">add Local Discount</span></a>
+
+<form id="saveform" action="/Student/StudentHeadDiscount" method="post">
+    <input type="hidden" name="DisID" value=@ViewBag.disid />
+    <input type="hidden" name="Stdid" value=@ViewBag.getsid />
+    <input type="hidden" name="tmId" value=@ViewBag.gettrid />
+    <input type="hidden" name="vocid" value=@ViewBag.vid />
+    <input type="hidden" name="url" value="@ViewBag.getlink" />
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.HiddenFor(model => model.FeeVoucherHeadDetail.fk_strif)*@
+            </th>
+            <th>
+                <label>Description</label>
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FeeVoucherHeadDetail.HeadValue)
+            </th>
+            <th>
+                <label>Enter Discount Amount</label>
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" name="HeadValue" value="@item.FeeVoucherHeadDetail.SubHead3Code" />
+
+
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubHead3Code.Description)
+                </td>
+
+                <td>@Html.DisplayFor(modelItem => item.FeeVoucherHeadDetail.HeadValue)</td>
+
+
+                <td>
+
+
+
+                    <input type="number" id="text1" name="discountAmount" value="0" class="form-control text-danger" placeholder="Enter Discount Amount" />
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @*<a href=" /Student/StudentHeadDiscount" @ViewBag.link>*@
+            <button id="createbutton" type="button" class="btn btn-primary">Save</button>
+            @*</a>*@
+        </div>
+    </div>
+
+</form>
+
+<a href="/student/studentsclasslist" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Complete</a>
+
+@section scripts
+{
+    <script>
+        $("#createbutton").click(function () {
+
+            $.ajax
+                ({
+                    url: "/Student/StudentHeadDiscount/",
+                    method: "post",
+                    data: $("#saveform").serialize()
+
+
+                }).done(function (ok) {
+
+
+                    $('#saveform').fadeOut(500, function () {
+                        alert("****Discount add Sucessfully******  ")
+
+                    });
+                }).fail(function () {
+                });
+
+
+
+
+        });
+
+
+    </script>
+}

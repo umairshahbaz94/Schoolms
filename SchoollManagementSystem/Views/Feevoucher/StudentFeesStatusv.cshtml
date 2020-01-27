@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SMS.Entities.StudentfeesStatusmodel>
+
+
+<h2>StudentFeesStatus</h2>
+
+<div class="col-12 form-group mg-t-8">
+    @*<a href="~/FeesV.aspx?@ViewBag.name">check</a>*@
+    <a href="~/reportsform/ClassStatusSharedV.aspx?@ViewBag.name" class="btn btn-primary"><span class="fa fa-print">Print all Record</span></a>
+
+
+
+</div>
+<table class="table table  table-bordered" id="myTable">
+
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNo)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.classname)
+        </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>*@
+            @*<th>
+            @Html.DisplayNameFor(model => model.Sessionname)
+        </th>*@
+            @*<th>
+            @Html.DisplayNameFor(model => model.TermName)
+        </th>*@
+            <th> @Html.DisplayNameFor(model => model.Id)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.FVAccountno)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SStatusReview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RollNo)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.classname)
+        </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>*@
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Sessionname)
+        </td>*@
+                @*<td>
+            @Html.DisplayFor(modelItem => item.TermName)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FVAccountno)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.DueDatev)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SStatusReview)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    <a href="@Url.Action("updatestatusv","Feevoucher" , new { id = item.Id })" class="btn btn-danger">
+                        <span class="fas fa-edit mr-2"></span>
+
+                    </a>
+
+
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>
+
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+}

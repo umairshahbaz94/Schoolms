@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SMS.Entities.vocuherheadvm>
+
+@{
+    ViewBag.Title = "FindByHead";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>FindByHead</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @if (Model.ToList() == null)
+    {
+
+
+
+    }
+</p>
+<div class=" well container-fluid">
+    <table class=" well row">
+        <tr>
+            <td><b>Class Name:</b></td>
+            <td>@ViewBag.classname </td>
+
+        </tr>
+        <tr>
+            <td><b> Session:</b></td>
+            <td>@ViewBag.session</td>
+
+        </tr>
+        <tr>
+            <td><b> Category:</b></td>
+            <td>@ViewBag.cat </td>
+
+        </tr>
+        <tr>
+            <td><b> Semester:</b></td>
+            <td>@ViewBag.sems </td>
+
+        </tr>
+        <tr>
+            <td><b>Section:</b></td>
+            <td>@ViewBag.section </td>
+
+        </tr>
+         
+        <tr>
+            <td><b> Start date</b></td>
+            <td>@ViewBag.startdata </td>
+
+        </tr>
+        <tr>
+            <td><b>End date</b></td>
+            <td>@ViewBag.enddata </td>
+
+        </tr>
+
+
+
+
+    </table>
+</div>
+<a href="/reportsform/HeadDetails.aspx?@ViewBag.name" class="btn btn-success">
+    <span class="fa fa-print">Print</span>
+
+</a>
+<table class="table table table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepositeDate)
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoucherNO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeadValue)
+            </th>
+
+            <th>
+                <label>Status</label>
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNo)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepositeDate)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoucherNO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeadValue)
+
+            </td>
+
+            <td>
+                <label>Paid</label>
+
+            </td>
+            <td></td>
+        </tr>
+        }
+    </tbody>
+</table>
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>}

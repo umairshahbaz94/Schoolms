@@ -1,0 +1,111 @@
+﻿
+@model SMS.Entities.Student
+@{
+    ViewBag.mainheading = "Class Deatils";
+}
+
+<!-- Admit Form Area Start Here -->
+
+<div class="heading-layout1">
+    <div class="item-title">
+        <h3>Add New @ViewBag.mainheading </h3>
+    </div>
+
+</div>
+<div class=" well container-fluid">
+    <table class=" well">
+        <tr>
+            <td><b>Student Name:</b></td>
+            <td>@Model.Name</td>
+
+        </tr>
+        <tr>
+            <td><b>Student RollNo:</b></td>
+            <td>@Model.RollNo</td>
+
+        </tr>
+
+
+
+
+    </table>
+</div>
+<br />
+
+<form class="new-added-form" method="post" action="@Url.Action("AssignClass","Student")">
+    <div class="row ">
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Branch</label>
+            @Html.DropDownList("cboBracnh", new SelectList(ViewBag.branchlist, "id", "branchname"), new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Class*</label>
+            @Html.DropDownList("cboclass", new SelectList(ViewBag.getclass, "id", "classname"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Session *</label>
+            @Html.DropDownList("cbosession", new SelectList(ViewBag.session, "ID", "Sessionname"), "Select Any one", new { @class = "form-control" })
+
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select category *</label>
+            @Html.DropDownList("cbocategory", new SelectList(ViewBag.catlist, "id", "CategoryName "), "Select Any one", new { @class = "form-control" })
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Select Section</label>
+            @Html.DropDownList("cbosection", new SelectList(ViewBag.section, "id", "sectionName"), "Select Any one", new { @class = "form-control" })
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label> Select Semester *</label>
+            @Html.DropDownList("cboterm", new SelectList(ViewBag.termname, "id", "TermName"), "Select Any one", new { @class = "form-control" })
+
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label> Select program  *</label>
+            @Html.DropDownList("cboprogram", new SelectList(ViewBag.program, " id", " Pname"), "Select Any one", new { @class = "form-control" })
+
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label> Discount Allow </label>
+                <input type="checkbox" name="checkbox" id="check" />
+
+
+            </div>
+
+
+
+        @*<div class="col-lg-6 col-12 form-group mg-t-30">
+                <label class="text-dark-medium">Upload Student Photo (150px X 150px)</label>
+                <input type="file" class="form-control-file">
+            </div>*@
+        <div class="col-12 form-group mg-t-8">
+            <button type="submit" id="btn1" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+
+            <button type="submit" id="btns" class=" btn btn-danger">Save</button>
+            <button id="btn" class=" btn btn-primary " disabled>Next>></button>
+        </div>
+
+    </div>
+</form>
+
+
+
+<!-- Admit Form Area End Here -->
+@section scripts{
+    <script>
+        $("#check").click(function () {
+            $("#btn").attr("disabled", !this.checked);
+
+        });
+
+        $("#check").click(function () {
+            $("#btns").attr("disabled", this.checked);
+
+        });
+
+    </script>
+}

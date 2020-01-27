@@ -1,0 +1,47 @@
+﻿@model SMS.Entities.SubHead3Code
+
+@{
+    ViewBag.Title = "update-subhead3-Details";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4> @ViewBag.Title</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.SubHeadCode3)
+
+   
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.SubHead2Code, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.SubHead2Code, new SelectList(ViewBag.subhead2, " SubHeadCode2", " Description ", Model.SubHead2Code), "Select subheadName-2", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SubHead2Code, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12 form-group mg-t-8">
+        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">save</button>
+
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

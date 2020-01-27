@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SMS.Entities.headvm>
+
+@{
+    ViewBag.Title = "ListsubHead1Codes";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>List-subHead1-Name</h2>
+
+<p>
+    @Html.ActionLink("Create New", "addsubhead", null,new { @class = "btn btn-primary" })
+</p>
+<table  class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+             <label>Head Name</label>
+            </th>
+            <th>
+                <label>Subhead Name</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MHeadCode.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subHead1Code.Description)
+            </td>
+            
+            <td>
+
+                <a href="@Url.Action("updatesubhead","subHead1Codes" , new {id = item.subHead1Code.SubHeadCode1 })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatesubhead","subHead1Codes" , new {id = item.subHead1Code.SubHeadCode1})" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updatesubhead","subHead1Codes" , new { id = item.subHead1Code.SubHeadCode1})" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+
+            </td>
+        </tr>
+
+
+        }
+
+    </tbody>
+
+</table>
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+      });</script>
+}

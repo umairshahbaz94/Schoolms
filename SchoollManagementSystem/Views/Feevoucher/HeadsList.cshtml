@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SMS.Entities.feeeheadvm>
+
+@{
+    ViewBag.Title = "HeadsList";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>Head List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "addheadvalue",null,new {  @class = "btn btn-primary" })
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeScheduleStructure.FVdiscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubHead3Code.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeVoucherHeadDetail.HeadValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeVoucherHeadDetail.ThirdVPercent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeScheduleStructure.FVdiscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubHead3Code.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeVoucherHeadDetail.HeadValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeVoucherHeadDetail.ThirdVPercent)
+            </td>
+            
+            <td>
+
+                <a href="@Url.Action("updateheadvalue","Feevoucher" , new { item.FeeVoucherHeadDetail.Id })" class="btn btn-danger">
+                    <span class="fas fa-edit mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updateheadvalue","Feevoucher" , new {  item.FeeVoucherHeadDetail.Id})" class="btn btn-danger">
+                    <span class="fas fa-trash mr-2"></span>
+
+                </a>
+                |
+                <a href="@Url.Action("updateheadvalue","Feevoucher"  , new {   item.FeeVoucherHeadDetail.Id})" class="btn btn-danger">
+                    <span class="fas fa-list mr-2"></span>
+
+                </a>
+
+
+
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+}

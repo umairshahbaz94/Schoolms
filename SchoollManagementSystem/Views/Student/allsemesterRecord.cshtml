@@ -1,0 +1,224 @@
+﻿@model IEnumerable<SMS.Entities.allsemesterRecords>
+
+@{
+    ViewBag.Title = "allsemesterRecord";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+<a href="~/reportsform/AllSemesterRecord.aspx?@ViewBag.link" class="btn btn-primary"><span class="fa fa-print">Print all Record</span></a>
+
+<h2>allsemesterRecord</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table  table-bordered" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.student.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.student.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues7)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Pudues9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Cdues9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.allSemesterfeesRecord.Totaldues9)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.student.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student.RollNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Pudues9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Cdues9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allSemesterfeesRecord.Totaldues9)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.allSemesterfeesRecord.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.allSemesterfeesRecord.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.allSemesterfeesRecord.id })
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "scrollY": "200px",
+                "scrollCollapse": true,
+                "paging": false
+            });
+        });
+        $("#myTable").dataTable({
+            "aLengthMenu": [100]
+        });
+    </script>
+}

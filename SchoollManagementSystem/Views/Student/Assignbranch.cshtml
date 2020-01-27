@@ -1,0 +1,149 @@
+﻿@model SMS.Entities.Student
+@{
+    ViewBag.Title = "Assignbranch";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+
+
+
+<section style="background:#efefe9;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="board">
+                <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                       
+                        <li class="disabled">
+                            <a href="#home"  title="Student-info">
+                                <span class="round-tabs one">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li id="branch">
+                            <a href="#branch"  title="branch" id="branch">
+                                <span class="round-tabs two">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#class"  title="class">
+                                <span class="round-tabs three">
+                                    <i class="glyphicon glyphicon-gift"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#fess"  title="fess">
+                                <span class="round-tabs four">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="disabled">
+                            <a href="#doner" title="completed">
+                                <span class="round-tabs five">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade " id="student-info">
+
+                       
+                    </div>
+                    <div class="tab-pane fade in active" id="branch">
+                        @using (Html.BeginForm())
+                        {
+                            <div class=" well container-fluid">
+                                <table class=" well">
+                                    <tr>
+                                        <td>Student Name:</td>
+                                        <td>@Model.Name</td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Student RollNo:</td>
+                                        <td>@Model.RollNo</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="well container-fluid">
+                                <div class="row ">
+                                    <div class="col-md-6"> select Branch</div>
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("cboBracnh", new SelectList(ViewBag.branchlist, "branchcode", "branchname"), "Select Any one", new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="well container-fluid">
+                                <div class="row ">
+                                    <div class="col-md-6"> select class</div>
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("cboclass", new SelectList(ViewBag.getclass, "classcode", "classname"), "Select Any one", new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div style="text-align:right">
+                                <input type="submit" value="Next>>" class="btn btn-primary" />
+                            </div>
+                        }
+                        <div class="tab-pane fade" id="class">
+                            <h3 class="head text-center">Bootsnipp goodies</h3>
+                            <p class="narrow text-center">
+                                Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                            </p>
+
+                            <p class="text-center">
+                                <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="fess">
+                            <h3 class="head text-center">Drop comments!</h3>
+                            <p class="narrow text-center">
+                                Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                            </p>
+
+                            <p class="text-center">
+                                <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="doner">
+                            <div class="text-center">
+                                <i class="img-intro icon-checkmark-circle"></i>
+                            </div>
+                            <h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>
+                            <p class="narrow text-center">
+                                Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $("#branch").addClass("active");
+        });
+    </script>
+}

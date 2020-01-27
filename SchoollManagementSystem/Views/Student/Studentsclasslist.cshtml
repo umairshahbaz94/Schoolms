@@ -1,0 +1,119 @@
+﻿@model IEnumerable<SMS.Entities.StudentDisplayVM>
+
+@{
+    ViewBag.Title = "Studentsclasslist";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Students-List</title>
+</head>
+<body>
+        
+    <table class="table table  table-bordered" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.RollNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Classes.classname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.session.Sessionname)
+
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.section.sectionName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.term.TermName)
+                </th>
+
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.RollNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classes.classname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.session.Sessionname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.section.sectionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.term.TermName)
+                </td>
+
+
+                <td>
+
+                    <a href="@Url.Action("Editclasses","student" , new { id = item.StudentCurrentStatus.id })" class="btn btn-danger">
+                        <span class="fas fa-edit mr-2"></span>
+
+                    </a>
+
+                    @*<a href="@Url.Action("DiscountDetails","student" , new { stid = item.StudentCurrentStatus.StudentID,branchid=item.StudentCurrentStatus.BranchID,classid=item.StudentCurrentStatus.classesID,
+               sessionid=item.StudentCurrentStatus.SessionID,cateid=item.StudentCurrentStatus.CategoryID,sectionid=item.StudentCurrentStatus.SectionID,Termid=item.StudentCurrentStatus.TermID,feevtype=1 })" class="btn btn-danger">
+                <span class="fas fa-percent mr-2"></span>
+
+            </a>*@
+
+                    <a href="@Url.Action("Deleteclasses","student" , new { id = item.StudentCurrentStatus.id })" class="btn btn-danger">
+                        <span class="fas fa-list mr-2"></span>
+
+                    </a>
+
+
+
+
+                    <a href="@Url.Action("updateVPercent","setvpercent" , new { id = item.SetVoucherpercent.id })" class="btn btn-danger">
+                        <span class="fas fa-percent mr-2"></span>
+
+                    </a>
+
+
+                    <a href="~/feesV.aspx?id=@item.Student.ID&termid=@item.StudentCurrentStatus.TermID" class="btn btn-success"><span class="fa fa-print"> P1 </span></a>
+                    <a href="~/reportsform/VoucherV1.aspx?id=@item.Student.ID&termid=@item.StudentCurrentStatus.TermID" class="btn btn-primary"><span class="fa fa-print"> P1 A </span></a>
+                    <a href="~/reportsform/VoucherV2.aspx?id=@item.Student.ID&termid=@item.StudentCurrentStatus.TermID" class="btn btn-primary"><span class="fa fa-print"> P1 B </span></a>
+                    <a href="~/reportsform/VoucherV4.aspx?id=@item.Student.ID&termid=@item.StudentCurrentStatus.TermID" class="btn btn-success"><span class="fa fa-print"> C1 </span></a>
+
+
+                    <a href="~/fineHead/Index?StudentID=@item.StudentCurrentStatus.StudentID&vid=1&bid=@item.StudentCurrentStatus.BranchID&cid=@item.StudentCurrentStatus.classesID&pid=@item.StudentCurrentStatus.ProgramdegreeID&seid=@item.StudentCurrentStatus.SessionID&ctid=@item.StudentCurrentStatus.CategoryID&secid=@item.StudentCurrentStatus.SectionID&trid=@item.StudentCurrentStatus.TermID" class="btn btn-success"><span class="fa fa-print"> Add-FineV1 </span></a>
+                    <a href="~/fineHead/Index?StudentID=@item.StudentCurrentStatus.StudentID&vid=2&bid=@item.StudentCurrentStatus.BranchID&cid=@item.StudentCurrentStatus.classesID&pid=@item.StudentCurrentStatus.ProgramdegreeID&seid=@item.StudentCurrentStatus.SessionID&ctid=@item.StudentCurrentStatus.CategoryID&secid=@item.StudentCurrentStatus.SectionID&trid=@item.StudentCurrentStatus.TermID" class="btn btn-success"><span class="fa fa-print"> Add-FineV4 </span></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+      });</script>
+}

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FEF183D-B019-44C6-B9C0-1F47485586C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMS.Data</RootNamespace>
+    <AssemblyName>SMS.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\201909260703327_alldbcreate.cs" />
+    <Compile Include="Migrations\201909260703327_alldbcreate.Designer.cs">
+      <DependentUpon>201909260703327_alldbcreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910071852223_fineheadadd.cs" />
+    <Compile Include="Migrations\201910071852223_fineheadadd.Designer.cs">
+      <DependentUpon>201910071852223_fineheadadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910131900446_masterstatusfile.cs" />
+    <Compile Include="Migrations\201910131900446_masterstatusfile.Designer.cs">
+      <DependentUpon>201910131900446_masterstatusfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910252055495_okalldb.cs" />
+    <Compile Include="Migrations\201910252055495_okalldb.Designer.cs">
+      <DependentUpon>201910252055495_okalldb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910252102353_okalldbs.cs" />
+    <Compile Include="Migrations\201910252102353_okalldbs.Designer.cs">
+      <DependentUpon>201910252102353_okalldbs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911050858396_saveallSemesterfeesRecord.cs" />
+    <Compile Include="Migrations\201911050858396_saveallSemesterfeesRecord.Designer.cs">
+      <DependentUpon>201911050858396_saveallSemesterfeesRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911052107528_setalldb.cs" />
+    <Compile Include="Migrations\201911052107528_setalldb.Designer.cs">
+      <DependentUpon>201911052107528_setalldb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911101915455_updatetblfeesstatus.cs" />
+    <Compile Include="Migrations\201911101915455_updatetblfeesstatus.Designer.cs">
+      <DependentUpon>201911101915455_updatetblfeesstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911102011599_updateallsemester.cs" />
+    <Compile Include="Migrations\201911102011599_updateallsemester.Designer.cs">
+      <DependentUpon>201911102011599_updateallsemester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001152237164_addsubject.cs" />
+    <Compile Include="Migrations\202001152237164_addsubject.Designer.cs">
+      <DependentUpon>202001152237164_addsubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001152239545_teacher.cs" />
+    <Compile Include="Migrations\202001152239545_teacher.Designer.cs">
+      <DependentUpon>202001152239545_teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001182203023_savecourseclassmappinganteachercourse.cs" />
+    <Compile Include="Migrations\202001182203023_savecourseclassmappinganteachercourse.Designer.cs">
+      <DependentUpon>202001182203023_savecourseclassmappinganteachercourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001191942269_config.cs" />
+    <Compile Include="Migrations\202001191942269_config.Designer.cs">
+      <DependentUpon>202001191942269_config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202117408_resulsheet.cs" />
+    <Compile Include="Migrations\202001202117408_resulsheet.Designer.cs">
+      <DependentUpon>202001202117408_resulsheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202129325_update.cs" />
+    <Compile Include="Migrations\202001202129325_update.Designer.cs">
+      <DependentUpon>202001202129325_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001272108152_save.cs" />
+    <Compile Include="Migrations\202001272108152_save.Designer.cs">
+      <DependentUpon>202001272108152_save.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SMSContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMS.Entities\SMS.Entities.csproj">
+      <Project>{f1ce71f9-30e5-42ff-b2a8-6117513ea04b}</Project>
+      <Name>SMS.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909260703327_alldbcreate.resx">
+      <DependentUpon>201909260703327_alldbcreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910071852223_fineheadadd.resx">
+      <DependentUpon>201910071852223_fineheadadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910131900446_masterstatusfile.resx">
+      <DependentUpon>201910131900446_masterstatusfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910252055495_okalldb.resx">
+      <DependentUpon>201910252055495_okalldb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910252102353_okalldbs.resx">
+      <DependentUpon>201910252102353_okalldbs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911050858396_saveallSemesterfeesRecord.resx">
+      <DependentUpon>201911050858396_saveallSemesterfeesRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911052107528_setalldb.resx">
+      <DependentUpon>201911052107528_setalldb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911101915455_updatetblfeesstatus.resx">
+      <DependentUpon>201911101915455_updatetblfeesstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911102011599_updateallsemester.resx">
+      <DependentUpon>201911102011599_updateallsemester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001152237164_addsubject.resx">
+      <DependentUpon>202001152237164_addsubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001152239545_teacher.resx">
+      <DependentUpon>202001152239545_teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001182203023_savecourseclassmappinganteachercourse.resx">
+      <DependentUpon>202001182203023_savecourseclassmappinganteachercourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001191942269_config.resx">
+      <DependentUpon>202001191942269_config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202117408_resulsheet.resx">
+      <DependentUpon>202001202117408_resulsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202129325_update.resx">
+      <DependentUpon>202001202129325_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001272108152_save.resx">
+      <DependentUpon>202001272108152_save.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

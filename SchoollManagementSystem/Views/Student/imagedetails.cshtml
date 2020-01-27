@@ -1,0 +1,43 @@
+﻿@model SMS.Entities.Student
+
+@{
+    ViewBag.Title = "Admission form image";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<h2>imagedetails</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNo)
+        </dd>
+
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.AdmissionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdmissionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admissionimage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Admissionimage)" height="500" width="1000">
+        </dd>
+
+        
+
+    </dl>
+</div>
+
