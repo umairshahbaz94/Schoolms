@@ -929,6 +929,7 @@
     <Content Include="Views\Examination\addsubject.cshtml" />
     <Content Include="Views\Examination\addTeacher.cshtml" />
     <Content Include="Views\Examination\classcourseradd.cshtml" />
+    <Content Include="Views\Examination\addTeachercourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

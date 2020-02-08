@@ -26,7 +26,7 @@ namespace SMS.services
         {
             SMSContext sMSContext = new SMSContext();
 
-            return sMSContext. Teacher.Find(id);
+            return sMSContext.Teacher.Find(id);
         }
         public void updateTeachers( Teacher  Teachers)
         {

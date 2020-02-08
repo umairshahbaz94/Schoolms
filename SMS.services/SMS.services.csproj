@@ -77,6 +77,7 @@
     <Compile Include="SubHead3Codeservice.cs" />
     <Compile Include="Subjectservice.cs" />
     <Compile Include="Teacherservice.cs" />
+    <Compile Include="teachersubjectCourseService.cs" />
     <Compile Include="Termservice.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -64,6 +64,7 @@
     <Compile Include="Branch.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Challanfees.cs" />
+    <Compile Include="classcoursevm.cs" />
     <Compile Include="configfile.cs" />
     <Compile Include="courseclassmapping.cs" />
     <Compile Include="DiscountAdvancetbl.cs" />

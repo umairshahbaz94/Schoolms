@@ -11,6 +11,7 @@ namespace SchoollManagementSystem.Controllers
 {
     public class ExaminationController : Controller
     {
+        
         sectionservice sectionservice = new sectionservice();
         Sessionservice sessionservice = new Sessionservice();
         Termservice termservice = new Termservice();
@@ -18,6 +19,7 @@ namespace SchoollManagementSystem.Controllers
         Subjectservice Subjectservice = new Subjectservice();
         classservice classservice = new classservice();
         Teacherservice teacherservice = new Teacherservice();
+        teachersubjectCourseService teachersubjectCourseService = new teachersubjectCourseService();
         Classsubjectmappingservice classsubjectmappingservice = new Classsubjectmappingservice();
         // GET: Examination
 
@@ -40,6 +42,32 @@ namespace SchoollManagementSystem.Controllers
             return View();
 
         }
+        
+        public ActionResult addTeachercourse()
+
+        {
+            ViewBag.classcourse = from classcourse in classsubjectmappingservice.getcourseclassmappings().ToList()
+                       join subject in Subjectservice.getSubjects().ToList() on classcourse.Subjectsid equals subject.Id
+                       select new classcoursevm
+                       {
+                           id = classcourse.id,
+                           coursename=subject.SubjectName,
+            
+            };
+                      ViewBag.teacher=  teacherservice.getTeachers().ToList();
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult addTeachercourse(teachersubjectCourse teachersubjectCourse)
+
+            {
+            teachersubjectCourse.date = DateTime.Now;
+            teachersubjectCourseService.saveteachersubjectCourses(teachersubjectCourse);
+        
+                return View();
+            }
+           
         [HttpGet]
         public ActionResult addTeacher()
         {
