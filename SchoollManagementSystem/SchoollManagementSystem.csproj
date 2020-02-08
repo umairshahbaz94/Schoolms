@@ -930,6 +930,7 @@
     <Content Include="Views\Examination\addTeacher.cshtml" />
     <Content Include="Views\Examination\classcourseradd.cshtml" />
     <Content Include="Views\Examination\addTeachercourse.cshtml" />
+    <Content Include="Views\Examination\configfiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

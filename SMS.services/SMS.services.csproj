@@ -56,6 +56,7 @@
     <Compile Include="classesStudentMappingservice.cs" />
     <Compile Include="classservice.cs" />
     <Compile Include="Classsubjectmappingservice.cs" />
+    <Compile Include="configfilesService.cs" />
     <Compile Include="DiscountAdvancetblservice.cs" />
     <Compile Include="FeeScheduleStructureservice.cs" />
     <Compile Include="FeeVoucherHeadDetailservice.cs" />

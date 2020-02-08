@@ -18,11 +18,28 @@ namespace SchoollManagementSystem.Controllers
         Studentservice studentservice = new Studentservice();
         Subjectservice Subjectservice = new Subjectservice();
         classservice classservice = new classservice();
+        configfilesService configfilesService = new configfilesService();
         Teacherservice teacherservice = new Teacherservice();
         teachersubjectCourseService teachersubjectCourseService = new teachersubjectCourseService();
         Classsubjectmappingservice classsubjectmappingservice = new Classsubjectmappingservice();
         // GET: Examination
 
+            public ActionResult configfiles()
+        {
+
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult configfiles(configfile configfile)
+        {
+            configfile.Updatetime = DateTime.Now;
+            configfilesService.saveconfigfile(configfile);
+
+
+            return View();
+
+        }
 
 [HttpGet]
         public ActionResult addsubject()
