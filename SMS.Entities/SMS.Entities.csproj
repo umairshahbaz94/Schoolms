@@ -86,6 +86,7 @@
     <Compile Include="setVoucherpercent.cs" />
     <Compile Include="Smslogo.cs" />
     <Compile Include="statustbl.cs" />
+    <Compile Include="Studentclassresult.cs" />
     <Compile Include="StudentFeesStatus.cs" />
     <Compile Include="StudentfeesStatusmodel.cs" />
     <Compile Include="SubHead2Code.cs" />

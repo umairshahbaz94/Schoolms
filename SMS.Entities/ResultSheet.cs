@@ -9,9 +9,9 @@ namespace SMS.Entities
    public class ResultSheet
     {
         public int ID { get; set; }
-        public string Studentid  { get; set; }
-        public string Programdegreesid { get; set; }
-        public string Subjectid { get; set; }
+        public int Studentid  { get; set; }
+        public int Programdegreesid { get; set; }
+        public int Subjectid { get; set; }
         public int SectionID { get; set; }
         public int SessionsID { get; set; }
         public int classesID { get; set; }

@@ -65,6 +65,7 @@
     <Compile Include="MHeadCodeservice.cs" />
     <Compile Include="Programdegreesservice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultSheetService.cs" />
     <Compile Include="sectionservice.cs" />
     <Compile Include="Sessionservice.cs" />
     <Compile Include="setVoucherpercentservice.cs" />

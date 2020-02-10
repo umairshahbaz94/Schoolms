@@ -119,6 +119,14 @@
     <Compile Include="Migrations\202001272108152_save.Designer.cs">
       <DependentUpon>202001272108152_save.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002101904437_savedball.cs" />
+    <Compile Include="Migrations\202002101904437_savedball.Designer.cs">
+      <DependentUpon>202002101904437_savedball.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002101909454_updateresultsheet.cs" />
+    <Compile Include="Migrations\202002101909454_updateresultsheet.Designer.cs">
+      <DependentUpon>202002101909454_updateresultsheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SMSContext.cs" />
@@ -183,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001272108152_save.resx">
       <DependentUpon>202001272108152_save.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101904437_savedball.resx">
+      <DependentUpon>202002101904437_savedball.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101909454_updateresultsheet.resx">
+      <DependentUpon>202002101909454_updateresultsheet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -267,6 +267,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SharedVoucherPrint.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dataset\StudentTermResult.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentTermResult.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\Voucherv1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,6 +334,13 @@
     </Compile>
     <Compile Include="reportsform\HeadDetails.aspx.designer.cs">
       <DependentUpon>HeadDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportsform\StudentResultterm.aspx.cs">
+      <DependentUpon>StudentResultterm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportsform\StudentResultterm.aspx.designer.cs">
+      <DependentUpon>StudentResultterm.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportsform\VoucherV1.aspx.cs">
       <DependentUpon>VoucherV1.aspx</DependentUpon>
@@ -494,6 +506,7 @@
     <Content Include="reportsform\ClassStatusSharedV.aspx" />
     <Content Include="reportsform\FinePrint.aspx" />
     <Content Include="reportsform\HeadDetails.aspx" />
+    <Content Include="reportsform\StudentResultterm.aspx" />
     <Content Include="reportsform\VoucherV1.aspx" />
     <Content Include="reportsform\VoucherV2.aspx" />
     <Content Include="reportsform\Voucherv4.aspx" />
@@ -652,6 +665,17 @@
     <Content Include="LoginTheme\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Dataset\Voucherv1.xsc">
       <DependentUpon>Voucherv1.xsd</DependentUpon>
+    </Content>
+    <Content Include="Dataset\StudentTermResult.xsc">
+      <DependentUpon>StudentTermResult.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\StudentTermResult.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentTermResult.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\StudentTermResult.xss">
+      <DependentUpon>StudentTermResult.xsd</DependentUpon>
     </Content>
     <None Include="Dataset\Voucherv1.xsd">
       <SubType>Designer</SubType>
@@ -931,6 +955,8 @@
     <Content Include="Views\Examination\classcourseradd.cshtml" />
     <Content Include="Views\Examination\addTeachercourse.cshtml" />
     <Content Include="Views\Examination\configfiles.cshtml" />
+    <Content Include="Views\Examination\ClassStudentList.cshtml" />
+    <Content Include="Views\Examination\FindclassResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -977,6 +1003,7 @@
     <EmbeddedResource Include="Reports\FineprintController.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Reports\Report3.rdlc" />
+    <EmbeddedResource Include="Reports\Report4.rdlc" />
     <EmbeddedResource Include="Reports\StudenFessV.rdlc" />
     <EmbeddedResource Include="Reports\VoucherV1.rdlc" />
     <EmbeddedResource Include="Reports\Voucherv2.rdlc" />

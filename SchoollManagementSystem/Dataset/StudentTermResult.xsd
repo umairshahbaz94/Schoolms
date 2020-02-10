@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="StudentResultbyterm" targetNamespace="http://tempuri.org/StudentResultbyterm.xsd" xmlns:mstns="http://tempuri.org/StudentResultbyterm.xsd" xmlns="http://tempuri.org/StudentResultbyterm.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="StudentTermResult" targetNamespace="http://tempuri.org/StudentTermResult.xsd" xmlns:mstns="http://tempuri.org/StudentTermResult.xsd" xmlns="http://tempuri.org/StudentTermResult.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -40,7 +40,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="StudentResultbyterm" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StudentResultbyterm" msprop:Generator_UserDSName="StudentResultbyterm">
+  <xs:element name="StudentTermResult" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StudentTermResult" msprop:Generator_UserDSName="StudentTermResult">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="studentresultbyterm" msprop:Generator_TableClassName="studentresultbytermDataTable" msprop:Generator_TableVarName="tablestudentresultbyterm" msprop:Generator_TablePropName="studentresultbyterm" msprop:Generator_RowDeletingName="studentresultbytermRowDeleting" msprop:Generator_RowChangingName="studentresultbytermRowChanging" msprop:Generator_RowEvHandlerName="studentresultbytermRowChangeEventHandler" msprop:Generator_RowDeletedName="studentresultbytermRowDeleted" msprop:Generator_UserTableName="studentresultbyterm" msprop:Generator_RowChangedName="studentresultbytermRowChanged" msprop:Generator_RowEvArgName="studentresultbytermRowChangeEvent" msprop:Generator_RowClassName="studentresultbytermRow">

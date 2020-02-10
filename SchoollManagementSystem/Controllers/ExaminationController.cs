@@ -11,7 +11,7 @@ namespace SchoollManagementSystem.Controllers
 {
     public class ExaminationController : Controller
     {
-        
+        ResultSheetService ResultSheetService = new ResultSheetService();
         sectionservice sectionservice = new sectionservice();
         Sessionservice sessionservice = new Sessionservice();
         Termservice termservice = new Termservice();
@@ -24,7 +24,7 @@ namespace SchoollManagementSystem.Controllers
         Classsubjectmappingservice classsubjectmappingservice = new Classsubjectmappingservice();
         // GET: Examination
 
-            public ActionResult configfiles()
+        public ActionResult configfiles()
         {
 
             return View();
@@ -41,10 +41,10 @@ namespace SchoollManagementSystem.Controllers
 
         }
 
-[HttpGet]
+        [HttpGet]
         public ActionResult addsubject()
         {
-           
+
 
             return View();
 
@@ -59,32 +59,32 @@ namespace SchoollManagementSystem.Controllers
             return View();
 
         }
-        
+
         public ActionResult addTeachercourse()
 
         {
             ViewBag.classcourse = from classcourse in classsubjectmappingservice.getcourseclassmappings().ToList()
-                       join subject in Subjectservice.getSubjects().ToList() on classcourse.Subjectsid equals subject.Id
-                       select new classcoursevm
-                       {
-                           id = classcourse.id,
-                           coursename=subject.SubjectName,
-            
-            };
-                      ViewBag.teacher=  teacherservice.getTeachers().ToList();
+                                  join subject in Subjectservice.getSubjects().ToList() on classcourse.Subjectsid equals subject.Id
+                                  select new classcoursevm
+                                  {
+                                      id = classcourse.id,
+                                      coursename = subject.SubjectName,
+
+                                  };
+            ViewBag.teacher = teacherservice.getTeachers().ToList();
 
             return View();
         }
         [HttpPost]
         public ActionResult addTeachercourse(teachersubjectCourse teachersubjectCourse)
 
-            {
+        {
             teachersubjectCourse.date = DateTime.Now;
             teachersubjectCourseService.saveteachersubjectCourses(teachersubjectCourse);
-        
-                return View();
-            }
-           
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult addTeacher()
         {
@@ -106,7 +106,7 @@ namespace SchoollManagementSystem.Controllers
         public ActionResult classcourseradd()
         {
 
-         ViewBag.subject=   Subjectservice.getSubjects().ToList();
+            ViewBag.subject = Subjectservice.getSubjects().ToList();
             ViewBag.classs = classservice.getclasses().ToList();
             return View();
 
@@ -115,8 +115,8 @@ namespace SchoollManagementSystem.Controllers
         public ActionResult classcourseradd(FormCollection fc)
         {
             courseclassmapping courseclassmapping = new courseclassmapping();
-            courseclassmapping.classesId =Convert.ToInt32( fc["cboclass"]);
-            courseclassmapping.Subjectsid= Convert.ToInt32(fc["cbosubject"]);
+            courseclassmapping.classesId = Convert.ToInt32(fc["cboclass"]);
+            courseclassmapping.Subjectsid = Convert.ToInt32(fc["cbosubject"]);
             courseclassmapping.date = DateTime.Now;
             classsubjectmappingservice.savecourseclassmappings(courseclassmapping);
 
@@ -136,7 +136,7 @@ namespace SchoollManagementSystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddResult(int cboclass, int cbosession, int cboterm, int cbosection,int cbosubject)
+        public ActionResult AddResult(int cboclass, int cbosession, int cboterm, int cbosection, int cbosubject)
 
         {
 
@@ -147,6 +147,7 @@ namespace SchoollManagementSystem.Controllers
             ViewBag.section = sectionservice.getsection().ToList();
             ViewBag.termname = termservice.getTerm().ToList();
             ViewBag.subject = cbosubject;
+
             var model = from c in currentStatuseservice.getStudentCurrentStatus().ToList().Where(x => x.classesID == cboclass
                         && x.SessionID == cbosession && x.TermID == cboterm
                         && x.SectionID == cbosection
@@ -194,6 +195,7 @@ namespace SchoollManagementSystem.Controllers
             string[] clas = fc["classesID"].Split(',');
             string[] term = fc["TermsID"].Split(',');
             string[] ses = fc["SessionsID"].Split(',');
+            string[] sec = fc["SectionID"].Split(',');
             string[] sub = fc["ID"].Split(',');
 
             int clases = Convert.ToInt32(clas[0]);
@@ -201,6 +203,7 @@ namespace SchoollManagementSystem.Controllers
 
             int sess = Convert.ToInt32(ses[0]);
             int subs = Convert.ToInt32(sub[0]);
+            int secs = Convert.ToInt32(sub[0]);
 
             IEnumerable<Tuple<string, string, string>> result = ids
       .Zip(roll, (e1, e2) => new { e1, e2 })
@@ -210,13 +213,14 @@ namespace SchoollManagementSystem.Controllers
             {
                 ResultSheet resultSheet = new ResultSheet();
                 resultSheet.AssignmentMakrs = Convert.ToInt32(tuple.Item1);
-                resultSheet.Studentid = tuple.Item2;
+                resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
                 resultSheet.MidMarks = Convert.ToInt32(tuple.Item3);
                 resultSheet.TermsID = terms;
                 resultSheet.classesID = clases;
+                resultSheet.SectionID = secs;
                 resultSheet.SessionsID = sess;
                 resultSheet.FinalTerm = 10;
-                resultSheet.ID =subs;
+                resultSheet.Subjectid = subs;
                 resultSheet.AddDetails = DateTime.Now;
                 SMSContext sMSContext = new SMSContext();
                 sMSContext.ResultSheet.Add(resultSheet);
@@ -227,6 +231,39 @@ namespace SchoollManagementSystem.Controllers
             return RedirectToAction("FindallStudentResults");
         }
 
+        public ActionResult FindclassResult()
+        {
+            ViewBag.session = sessionservice.getsession().ToList();
+            ViewBag.section = sectionservice.getsection().ToList();
+            ViewBag.termname = termservice.getTerm().ToList();
+            ViewBag.getclass = classservice.getclasses().ToList();
+            ViewBag.subject = Subjectservice.getSubjects().ToList();
+
+            return View();
+        }
+
+
+        public ActionResult ClassStudentList(int cboclass, int cbosession, int cboterm, int cbosection)
+
+        {
+            ViewBag.id = cboclass + "&" + cboterm;
+            ViewBag.classname = classservice.getclasses().Where(x => x.ID == cboclass).Select(x => x.classname).SingleOrDefault();
+            ViewBag.section = sectionservice.getsection().Where(x => x.id == cbosection).Select(y => y.sectionName).SingleOrDefault();
+            var list = from Result in ResultSheetService.getResultSheet().ToList().Where(x => x.classesID == cboclass && x.SessionsID == cbosession
+               && x.TermsID == cboterm && x.SectionID == cbosection)
+                       join term in termservice.getTerm() on Result.TermsID equals term.id
+                       join classs in classservice.getclasses() on Result.classesID equals classs.ID
+                       join student in studentservice.getstudent() on Result.Studentid equals student.ID
+                       select new StudentDisplayVM
+                       {
+
+                           result = Result,
+                           term = term,
+                           Classes = classs,
+                           student = student,
+                       };
+            return View(list);
+        }
     }
 }
 
