@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SMS.Entities.StudentDisplayVM>
+
+@{
+    ViewBag.Title = "Studentsclasslist";
+    Layout = "~/Views/Shared/_Layout_New.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Studentslist</title>
+</head>
+<body>
+
+
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+      
+    </p>
+    <form action="/Examination/AddResult" method="post">
+
+        @ViewBag.classname
+        @ViewBag.section
+
+        <table class="table table  table-bordered" data-page-length='100' id="myTable">
+
+
+
+            <thead>
+                <tr>
+
+                <tr>
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Student.RollNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Student.Name)
+                    </th>
+                    <th>
+                        <label>Term</label>
+                    </th>
+                    <th>
+                        <label>Class</label>
+                    </th>
+                    <th>
+
+                        Action
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.student.RollNo)
+                        </td>
+                        <td>
+
+
+                            @Html.DisplayFor(modelItem => item.student.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.term.TermName)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Classes.classname)
+
+                        </td>
+
+
+                        <td>
+
+                            <a href="~/feesV.aspx?id=@item.student.ID&termid=@item.term.id" class="btn btn-success"><span class="fa fa-print"> Result </span></a>
+                            |
+                            <a href="@Url.Action("updateFeeStructures","Feevoucher" , new {  @ViewBag.id })" class="btn btn-danger">
+                                <span class="fas fa-trash mr-2"></span>
+
+                            </a>
+                            |
+                            <a href="@Url.Action("updateFeeStructures","Feevoucher"  , new {     @ViewBag.id })" class="btn btn-danger">
+                                <span class="fas fa-list mr-2"></span>
+
+                            </a>
+
+
+
+                        </td>
+
+
+                    </tr>
+
+                }
+
+
+            </tbody>
+
+            @*<label>Select Section</label>
+            @Html.DropDownList("sid", new SelectList(ViewBag.section, " id", "sectionName"), "Select Any one", new { @class = "form-control", required = "required" })
+            <label>Select Smester </label>           @Html.DropDownList("tids", new SelectList(ViewBag.termname, "id", "TermName"), "Select Any one", new { @class = "form-control", required = "required" })*@
+
+        </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
+@section scripts
+{
+
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable();
+        });
+        $("#myTable").dataTable({
+            "aLengthMenu": [100]
+        });
+        $('#example').dataTable({
+            "pageLength": 100
+        });
+    </script>
+}
