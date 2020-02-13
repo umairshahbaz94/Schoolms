@@ -11,6 +11,7 @@ namespace SchoollManagementSystem.Controllers
 {
     public class ExaminationController : Controller
     {
+
         ResultSheetService ResultSheetService = new ResultSheetService();
         sectionservice sectionservice = new sectionservice();
         Sessionservice sessionservice = new Sessionservice();
@@ -140,50 +141,155 @@ namespace SchoollManagementSystem.Controllers
 
         {
 
-
-            StudentCurrentStatuseservice currentStatuseservice = new StudentCurrentStatuseservice();
-            ViewBag.session = sessionservice.getsession().ToList();
-            ViewBag.classeslist = classservice.getclasses().ToList();
-            ViewBag.section = sectionservice.getsection().ToList();
-            ViewBag.termname = termservice.getTerm().ToList();
-            ViewBag.subject = cbosubject;
-
-            var model = from c in currentStatuseservice.getStudentCurrentStatus().ToList().Where(x => x.classesID == cboclass
-                        && x.SessionID == cbosession && x.TermID == cboterm
-                        && x.SectionID == cbosection
-                        )
-                        join s in studentservice.getstudent() on c.StudentID equals s.ID
-                        join sec in sectionservice.getsection() on c.SectionID equals sec.id
-                        join Session in sessionservice.getsession() on c.SessionID equals Session.ID
-                        join classes in classservice.getclasses() on c.classesID equals classes.ID
-                        join term in termservice.getTerm() on c.TermID equals term.id
+            var id = ResultSheetService.getResultSheet().Where(x => x.classesID == cboclass && x.SessionsID == cbosession &&
+             x.TermsID == cboterm && x.SectionID == cbosection && x.Subjectid == cbosubject).Select(x=>x.ID);
 
 
+            if (id.Count()>0)
+            {
+     
 
+                return RedirectToAction("Edit",new { cboclass, cbosection, cbosession, cbosubject, cboterm });
 
-                        select new StudentDisplayVM
-                        {
-                            section = sec,
-                            session = Session,
-                            Student = s,
-                            StudentCurrentStatus = c,
-                            Classes = classes,
-                            term = term
+            }
+            else
+            {
+                StudentCurrentStatuseservice currentStatuseservice = new StudentCurrentStatuseservice();
+                ViewBag.session = sessionservice.getsession().ToList();
+                ViewBag.classeslist = classservice.getclasses().ToList();
+                ViewBag.section = sectionservice.getsection().ToList();
+                ViewBag.termname = termservice.getTerm().ToList();
+                ViewBag.subject = cbosubject;
 
-                        };
+                var model = from c in currentStatuseservice.getStudentCurrentStatus().ToList().Where(x => x.classesID == cboclass
+                            && x.SessionID == cbosession && x.TermID == cboterm
+                            && x.SectionID == cbosection
+                            )
+                            join s in studentservice.getstudent() on c.StudentID equals s.ID
+                            join sec in sectionservice.getsection() on c.SectionID equals sec.id
+                            join Session in sessionservice.getsession() on c.SessionID equals Session.ID
+                            join classes in classservice.getclasses() on c.classesID equals classes.ID
+                            join term in termservice.getTerm() on c.TermID equals term.id
 
 
 
-            return View(model);
+
+                            select new StudentDisplayVM
+                            {
+                                section = sec,
+                                session = Session,
+                                Student = s,
+                                StudentCurrentStatus = c,
+                                Classes = classes,
+                                term = term
+
+
+                            };
+
+
+
+                return View(model);
+
+
+            }
+
         }
 
+        [HttpGet]
+        public ActionResult edit(int cboclass, int cbosession, int cboterm, int cbosection, int cbosubject)
 
 
+        {
+            ViewBag.subject = cbosubject;
+            var list = from r in ResultSheetService.getResultSheet().Where(x => x.classesID == cboclass && x.SessionsID == cbosession &&
+      x.TermsID == cboterm && x.SectionID == cbosection && x.Subjectid == cbosubject).ToList()
+                       join s in studentservice.getstudent() on r.Studentid equals s.ID
+                       join sec in sectionservice.getsection() on r.SectionID equals sec.id
+                       join Session in sessionservice.getsession() on r.SessionsID equals Session.ID
+                       join classes in classservice.getclasses() on r.classesID equals classes.ID
+                       join term in termservice.getTerm() on r.TermsID equals term.id
+
+
+
+                       select new StudentDisplayVM
+                       {
+                           section = sec,
+                           session = Session,
+                           Student = s,
+                           result = r,
+                           Classes = classes,
+                           term = term
+
+
+                       };
+
+
+
+
+            return View(list);
+        }
+        [HttpPost]
+        public ActionResult edit(FormCollection fc)
+
+        {
+
+
+            //string[] ids = fc["classid"].Split(',');
+            string[] ids = fc["AssignmentMakrs"].Split(',');
+            string[] roll = fc["rollno"].Split(',');
+            string[] finall = fc["FinalTerm"].Split(',');
+
+
+
+            string[] id = fc["classid"].Split(',');
+            string[] clas = fc["classesID"].Split(',');
+            string[] term = fc["TermsID"].Split(',');
+            string[] ses = fc["SessionsID"].Split(',');
+            string[] sec = fc["SectionID"].Split(',');
+            string[] sub = fc["ID"].Split(',');
+
+            int clases = Convert.ToInt32(clas[0]);
+            int terms = Convert.ToInt32(term[0]);
+
+            int sess = Convert.ToInt32(ses[0]);
+            int subs = Convert.ToInt32(sub[0]);
+            int secs = Convert.ToInt32(sub[0]);
+
+            IEnumerable<Tuple<string, string, string>> result = ids
+      .Zip(roll, (e1, e2) => new { e1, e2 })
+      .Zip(id, (z1, e3) => Tuple.Create(z1.e1, z1.e2, e3));
+            foreach (var tuple in result)
+
+            {
+                ResultSheet resultSheet = new ResultSheet();
+                resultSheet.AssignmentMakrs = Convert.ToDecimal(tuple.Item1);
+                resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
+                resultSheet.MidMarks = 20;
+                resultSheet.TermsID = terms;
+                resultSheet.classesID = clases;
+                resultSheet.SectionID = secs;
+                resultSheet.SessionsID = sess;
+                resultSheet.FinalTerm = 10;
+                resultSheet.Subjectid = subs;
+               resultSheet.ID=Convert.ToInt32(tuple.Item3);
+                resultSheet.AddDetails = DateTime.Now;
+                SMSContext sMSContext = new SMSContext();
+
+                ResultSheetService.updateResultSheet(resultSheet);
+                sMSContext.SaveChanges();
+
+            }
+
+
+
+            return RedirectToAction("FindallStudentResults");
+        }
 
         [HttpPost]
         public ActionResult AddResult(FormCollection fc)
 
         {
+            
             //string[] ids = fc["classid"].Split(',');
             string[] ids = fc["AssignmentMakrs"].Split(',');
             string[] roll = fc["rollno"].Split(',');
@@ -212,25 +318,30 @@ namespace SchoollManagementSystem.Controllers
 
             {
                 ResultSheet resultSheet = new ResultSheet();
-                resultSheet.AssignmentMakrs = Convert.ToInt32(tuple.Item1);
-                resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
-                resultSheet.MidMarks = Convert.ToInt32(tuple.Item3);
-                resultSheet.TermsID = terms;
-                resultSheet.classesID = clases;
-                resultSheet.SectionID = secs;
-                resultSheet.SessionsID = sess;
-                resultSheet.FinalTerm = 10;
-                resultSheet.Subjectid = subs;
-                resultSheet.AddDetails = DateTime.Now;
-                SMSContext sMSContext = new SMSContext();
-                sMSContext.ResultSheet.Add(resultSheet);
-                sMSContext.SaveChanges();
+                
+                    resultSheet.AssignmentMakrs = Convert.ToInt32(tuple.Item1);
+                    resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
+                    resultSheet.MidMarks = Convert.ToInt32(tuple.Item3);
+                    resultSheet.TermsID = terms;
+                    resultSheet.classesID = clases;
+                    resultSheet.SectionID = secs;
+                    resultSheet.SessionsID = sess;
+                    resultSheet.FinalTerm = 10;
+                    resultSheet.Subjectid = subs;
+                    resultSheet.AddDetails = DateTime.Now;
+                    SMSContext sMSContext = new SMSContext();
+                    sMSContext.ResultSheet.Add(resultSheet);
+                    sMSContext.SaveChanges();
+              
 
-            }
+                                    }
+
+            
 
             return RedirectToAction("FindallStudentResults");
         }
 
+    
         public ActionResult FindclassResult()
         {
             ViewBag.session = sessionservice.getsession().ToList();

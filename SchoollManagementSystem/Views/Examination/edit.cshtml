@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<SMS.Entities.StudentDisplayVM>
-
 @{
-    ViewBag.Title = "Studentsclasslist";
-    Layout = "~/Views/Shared/_Layout_New.cshtml";
+                /**/
+
+                ViewBag.Title = "Studentsclasslist";
+                Layout = "~/Views/Shared/_Layout_New.cshtml";
 }
 
 <html>
@@ -18,7 +19,8 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <form action="/Examination/AddResult" method="post">
+
+    <form action="/Examination/edit" method="post">
 
 
         <table class="table table  table-bordered" data-page-length='100' id="myTable">
@@ -63,32 +65,35 @@
                         <td>
                             <input type="hidden" name="rollno" value="@item.Student.ID" />
                             <input type="hidden" name="ID" value="@ViewBag.subject" />
-                            @Html.DisplayFor(modelItem => item.Student.RollNo)
+                            @item.Student.RollNo
                         </td>
                         <td>
 
+<label>
+    @item.Student.Name
+</label>
 
-                            @Html.DisplayFor(modelItem => item.Student.Name)
                         </td>
                         <td>
-                            <input type="number" value="0" name="AssignmentMakrs" />
+                            <input type="number" value="@item.result.AssignmentMakrs" name="AssignmentMakrs" />
 
                         </td>
                         <td>
                             <input type="hidden" name="SessionsID" value="@item.session.ID" />
-                            <input type="number" name="MidMarks" value="0" />
+                            <input type="number" name="MidMarks" value="@item.result.MidMarks" />
                         </td>
                         <td>
-                            <input type="hidden" name="classesID" value="@item.StudentCurrentStatus.classesID" />
-                            <input type="number" name="FinalTerm" value="0" />
+                            <input type="hidden" name="classesID" value="@item.Classes.ID" />
+                            <input type="number" name="FinalTerm" value="@item.result.FinalTerm" />
                         </td>
                         <td>
+                            @item.term.TermName
                             <input type="hidden" name="TermsID" value="@item.term.id" />
                             <input type="hidden" name="SectionID" value="@item.section.id" />
 
                         </td>
                         <td>
-                            <input type="checkbox" class="checkboxid" name="classid" value="@item.StudentCurrentStatus.id" checked />
+                            <input type="checkbox" class="checkboxid" name="classid" value="@item.result.ID" checked />
                         </td>
 
 
@@ -121,8 +126,8 @@
 {
 
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
+      $(document).ready(function () {
+          $('#myTable').DataTable();
         });
         $("#myTable").dataTable({
             "aLengthMenu": [100]

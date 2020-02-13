@@ -957,6 +957,7 @@
     <Content Include="Views\Examination\configfiles.cshtml" />
     <Content Include="Views\Examination\ClassStudentList.cshtml" />
     <Content Include="Views\Examination\FindclassResult.cshtml" />
+    <Content Include="Views\Examination\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
