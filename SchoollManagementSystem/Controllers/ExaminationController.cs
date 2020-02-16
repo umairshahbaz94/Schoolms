@@ -235,9 +235,10 @@ namespace SchoollManagementSystem.Controllers
 
 
             //string[] ids = fc["classid"].Split(',');
-            string[] ids = fc["AssignmentMakrs"].Split(',');
-            string[] roll = fc["rollno"].Split(',');
+            string[] assimarks = fc["AssignmentMakrs"].Split(',');
+            string[] rollno = fc["rollno"].Split(',');
             string[] finall = fc["FinalTerm"].Split(',');
+            string[] midterm = fc["MidMarks"].Split(',');
 
 
 
@@ -254,32 +255,44 @@ namespace SchoollManagementSystem.Controllers
             int sess = Convert.ToInt32(ses[0]);
             int subs = Convert.ToInt32(sub[0]);
             int secs = Convert.ToInt32(sub[0]);
+            int a = -1;
+            Tuple<string[], string[], string[], string[]>[] statesData =
+            { Tuple.Create(finall, assimarks, rollno,id)};
+            //IEnumerable<Tuple<string, string, string, string, string>> result = assimarks
+            //    .Zip(rollno, (e1, e2) => new { e1, e2 })
+            //    .Zip(assimarks, (e4, e5) => new { e4, e5 })
+            //    .Zip(finall, (z1, e5) => Tuple.Create(z1.e4,z1.e4,z1.e4,z1.e4))
+            var tuple = new Tuple<string[], string[], string[], string[]>(finall, assimarks, rollno, id);
 
-            IEnumerable<Tuple<string, string, string>> result = ids
-      .Zip(roll, (e1, e2) => new { e1, e2 })
-      .Zip(id, (z1, e3) => Tuple.Create(z1.e1, z1.e2, e3));
-            foreach (var tuple in result)
-
+            for (int i = 0; i < ses.Length; i++)
             {
+                assimarks[i].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(Id => Convert.ToString((Id))).ToList();
+                id[i].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(Id => Convert.ToString((Id))).ToList();
+                finall[i].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(Id => Convert.ToString((Id))).ToList();
+                midterm[i].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(Id => Convert.ToString((Id))).ToList();
+
+
+
+
+
                 ResultSheet resultSheet = new ResultSheet();
-                resultSheet.AssignmentMakrs = Convert.ToDecimal(tuple.Item1);
-                resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
-                resultSheet.MidMarks = 20;
+                resultSheet.AssignmentMakrs = Convert.ToDecimal(assimarks[i]);
+                resultSheet.Studentid = Convert.ToInt32(rollno[i]);
+                resultSheet.MidMarks = Convert.ToDecimal(midterm[i]);
                 resultSheet.TermsID = terms;
                 resultSheet.classesID = clases;
                 resultSheet.SectionID = secs;
                 resultSheet.SessionsID = sess;
-                resultSheet.FinalTerm = 10;
+                resultSheet.FinalTerm = Convert.ToDecimal(finall[i]);
                 resultSheet.Subjectid = subs;
-               resultSheet.ID=Convert.ToInt32(tuple.Item3);
+                resultSheet.ID = Convert.ToInt32(id[i]);
                 resultSheet.AddDetails = DateTime.Now;
                 SMSContext sMSContext = new SMSContext();
-
                 ResultSheetService.updateResultSheet(resultSheet);
                 sMSContext.SaveChanges();
 
-            }
-
+               }
+        
 
 
             return RedirectToAction("FindallStudentResults");

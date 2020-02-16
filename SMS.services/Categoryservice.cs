@@ -28,7 +28,8 @@ namespace SMS.services
 
             return sMSContext.Categorys.Find(id);
         }
-        public void updateCategory(Category Category)
+        
+            public void updateCategory(Category Category)
         {
             SMSContext sMSContext = new SMSContext();
             sMSContext.Entry(Category).State = System.Data.Entity.EntityState.Modified;
