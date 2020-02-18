@@ -21,8 +21,11 @@
     </p>
     <form action="/Examination/AddResult" method="post">
 
-        @ViewBag.classname
-        @ViewBag.section
+        Class Name :@ViewBag.classname<br />
+        Section Name :@ViewBag.section<br />
+      
+        Subject Name :@ViewBag.subjectname
+
 
         <table class="table table  table-bordered" data-page-length='100' id="myTable">
 
@@ -77,7 +80,7 @@
 
                         <td>
 
-                            <a href="~/reportsform/StudentResultterm.aspx?id=@item.student.ID&termid=@item.term.id" class="btn btn-success"><span class="fa fa-print"> Result </span></a>
+                            <a href="~/reportsform/StudentResultterm.aspx?id=@item.student.ID&termid=@item.term.id&subjectid=@item.subjects.Id" class="btn btn-success"><span class="fa fa-print"> Result </span></a>
                             |
                             <a href="@Url.Action("updateFeeStructures","Feevoucher" , new {  @ViewBag.id })" class="btn btn-danger">
                                 <span class="fas fa-trash mr-2"></span>

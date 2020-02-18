@@ -22,6 +22,8 @@ namespace SMS.Entities
         public ResultSheet result { get; set; }
         public Student student { get; set; }
 
+        public Subjects  subjects{ get; set; }
+
 
 
 

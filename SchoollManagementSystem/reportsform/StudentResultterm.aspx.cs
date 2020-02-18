@@ -20,16 +20,18 @@ namespace SchoollManagementSystem.reportsform
             {
                 int getid = Convert.ToInt32(Request.QueryString["id"]);
                 int termid = Convert.ToInt32(Request.QueryString["termid"]);
-                getreport(getid, termid);
+                int subjectid = Convert.ToInt32(Request.QueryString["subjectid"]);
+                getreport(getid, termid,subjectid);
             }
 
         }
-        private void getreport(int id, int termid)
+        private void getreport(int id, int termid,int subjectid)
         {
 
             SqlParameter ids = new SqlParameter("@studentid", id);
+            SqlParameter subjectids = new SqlParameter("@subjectid",subjectid);
             SqlParameter termids = new SqlParameter("@termid", termid);
-            var list = obj.Database.SqlQuery<Studentclassresult>("studentresultbyterm @studentid,@termid", ids, termids).ToList();
+            var list = obj.Database.SqlQuery<Studentclassresult>("studentresultbyterm @studentid,@termid,@subjectid", ids, termids,subjectids).ToList();
             ReportDataSource rd = new ReportDataSource("DataSet1", list);
             ReportViewer1.LocalReport.DataSources.Add(rd);
             ReportViewer1.LocalReport.Refresh();

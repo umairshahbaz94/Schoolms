@@ -12,6 +12,7 @@ namespace SMS.Entities
         public string RollNo { get; set; }
         public string TermName { get; set; }
         public string sectionName { get; set; }
+        public string SubjectName { get; set; }
         public string classname { get; set; }
         public string Sessionname { get; set; }
         public decimal AssignmentMakrs { get; set; }

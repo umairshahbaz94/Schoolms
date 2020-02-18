@@ -367,17 +367,19 @@ namespace SchoollManagementSystem.Controllers
         }
 
 
-        public ActionResult ClassStudentList(int cboclass, int cbosession, int cboterm, int cbosection)
+        public ActionResult ClassStudentList(int cboclass, int cbosession, int cboterm, int cbosection, int cbosubject)
 
         {
-            ViewBag.id = cboclass + "&" + cboterm;
+            ViewBag.id = cboclass + "&" + cboterm + "&" + cbosubject;
+            ViewBag.subjectname = Subjectservice.getSubjects().Where(x => x.Id == cbosubject).Select(x => x.SubjectName).SingleOrDefault();
             ViewBag.classname = classservice.getclasses().Where(x => x.ID == cboclass).Select(x => x.classname).SingleOrDefault();
             ViewBag.section = sectionservice.getsection().Where(x => x.id == cbosection).Select(y => y.sectionName).SingleOrDefault();
             var list = from Result in ResultSheetService.getResultSheet().ToList().Where(x => x.classesID == cboclass && x.SessionsID == cbosession
-               && x.TermsID == cboterm && x.SectionID == cbosection)
+               && x.TermsID == cboterm && x.SectionID == cbosection && x.Subjectid == cbosubject)
                        join term in termservice.getTerm() on Result.TermsID equals term.id
                        join classs in classservice.getclasses() on Result.classesID equals classs.ID
                        join student in studentservice.getstudent() on Result.Studentid equals student.ID
+                       join Subjectservice in Subjectservice.getSubjects() on Result.Subjectid equals Subjectservice.Id 
                        select new StudentDisplayVM
                        {
 
@@ -385,6 +387,7 @@ namespace SchoollManagementSystem.Controllers
                            term = term,
                            Classes = classs,
                            student = student,
+                           subjects=Subjectservice,
                        };
             return View(list);
         }

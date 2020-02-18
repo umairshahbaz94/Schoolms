@@ -283,6 +283,8 @@ namespace SchoollManagementSystem.Dataset {
             
             private global::System.Data.DataColumn columnRollNo;
             
+            private global::System.Data.DataColumn columnSubjectName;
+            
             private global::System.Data.DataColumn columnTermName;
             
             private global::System.Data.DataColumn columnsectionName;
@@ -343,6 +345,14 @@ namespace SchoollManagementSystem.Dataset {
             public global::System.Data.DataColumn RollNoColumn {
                 get {
                     return this.columnRollNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SubjectNameColumn {
+                get {
+                    return this.columnSubjectName;
                 }
             }
             
@@ -439,11 +449,12 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public studentresultbytermRow AddstudentresultbytermRow(string Name, string RollNo, string TermName, string sectionName, string classname, string Sessionname, decimal AssignmentMakrs, decimal FinalTerm, decimal MidMarks) {
+            public studentresultbytermRow AddstudentresultbytermRow(string Name, string RollNo, string SubjectName, string TermName, string sectionName, string classname, string Sessionname, decimal AssignmentMakrs, decimal FinalTerm, decimal MidMarks) {
                 studentresultbytermRow rowstudentresultbytermRow = ((studentresultbytermRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
                         RollNo,
+                        SubjectName,
                         TermName,
                         sectionName,
                         classname,
@@ -475,6 +486,7 @@ namespace SchoollManagementSystem.Dataset {
             internal void InitVars() {
                 this.columnName = base.Columns["Name"];
                 this.columnRollNo = base.Columns["RollNo"];
+                this.columnSubjectName = base.Columns["SubjectName"];
                 this.columnTermName = base.Columns["TermName"];
                 this.columnsectionName = base.Columns["sectionName"];
                 this.columnclassname = base.Columns["classname"];
@@ -491,6 +503,8 @@ namespace SchoollManagementSystem.Dataset {
                 base.Columns.Add(this.columnName);
                 this.columnRollNo = new global::System.Data.DataColumn("RollNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRollNo);
+                this.columnSubjectName = new global::System.Data.DataColumn("SubjectName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubjectName);
                 this.columnTermName = new global::System.Data.DataColumn("TermName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTermName);
                 this.columnsectionName = new global::System.Data.DataColumn("sectionName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -507,6 +521,7 @@ namespace SchoollManagementSystem.Dataset {
                 base.Columns.Add(this.columnMidMarks);
                 this.columnName.MaxLength = 2147483647;
                 this.columnRollNo.MaxLength = 2147483647;
+                this.columnSubjectName.MaxLength = 2147483647;
                 this.columnTermName.MaxLength = 2147483647;
                 this.columnsectionName.MaxLength = 2147483647;
                 this.columnclassname.MaxLength = 2147483647;
@@ -688,6 +703,22 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SubjectName {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudentresultbyterm.SubjectNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubjectName\' in table \'studentresultbyterm\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudentresultbyterm.SubjectNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string TermName {
                 get {
                     try {
@@ -805,6 +836,18 @@ namespace SchoollManagementSystem.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetRollNoNull() {
                 this[this.tablestudentresultbyterm.RollNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSubjectNameNull() {
+                return this.IsNull(this.tablestudentresultbyterm.SubjectNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSubjectNameNull() {
+                this[this.tablestudentresultbyterm.SubjectNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1017,6 +1060,7 @@ namespace SchoollManagementSystem.Dataset.StudentTermResultTableAdapters {
             tableMapping.DataSetTable = "studentresultbyterm";
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("RollNo", "RollNo");
+            tableMapping.ColumnMappings.Add("SubjectName", "SubjectName");
             tableMapping.ColumnMappings.Add("TermName", "TermName");
             tableMapping.ColumnMappings.Add("sectionName", "sectionName");
             tableMapping.ColumnMappings.Add("classname", "classname");
@@ -1045,13 +1089,14 @@ namespace SchoollManagementSystem.Dataset.StudentTermResultTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@studentid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@termid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subjectid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StudentTermResult.studentresultbytermDataTable dataTable, global::System.Nullable<int> studentid, global::System.Nullable<int> termid) {
+        public virtual int Fill(StudentTermResult.studentresultbytermDataTable dataTable, global::System.Nullable<int> studentid, global::System.Nullable<int> termid, global::System.Nullable<int> subjectid) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((studentid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(studentid.Value));
@@ -1064,6 +1109,12 @@ namespace SchoollManagementSystem.Dataset.StudentTermResultTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((subjectid.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(subjectid.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1076,7 +1127,7 @@ namespace SchoollManagementSystem.Dataset.StudentTermResultTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StudentTermResult.studentresultbytermDataTable GetData(global::System.Nullable<int> studentid, global::System.Nullable<int> termid) {
+        public virtual StudentTermResult.studentresultbytermDataTable GetData(global::System.Nullable<int> studentid, global::System.Nullable<int> termid, global::System.Nullable<int> subjectid) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((studentid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(studentid.Value));
@@ -1089,6 +1140,12 @@ namespace SchoollManagementSystem.Dataset.StudentTermResultTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((subjectid.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(subjectid.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             StudentTermResult.studentresultbytermDataTable dataTable = new StudentTermResult.studentresultbytermDataTable();
             this.Adapter.Fill(dataTable);
