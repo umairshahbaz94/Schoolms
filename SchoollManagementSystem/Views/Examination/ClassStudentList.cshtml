@@ -16,14 +16,16 @@
 
 
     <p>
+
         @Html.ActionLink("Create New", "Create")
-      
+
     </p>
+    <a href="~/reportsform/ClassResultlist.aspx/?   @ViewBag.id" class="btn btn-danger"> Print class List</a>
     <form action="/Examination/AddResult" method="post">
 
         Class Name :@ViewBag.classname<br />
         Section Name :@ViewBag.section<br />
-      
+
         Subject Name :@ViewBag.subjectname
 
 
@@ -105,8 +107,8 @@
             </tbody>
 
             @*<label>Select Section</label>
-            @Html.DropDownList("sid", new SelectList(ViewBag.section, " id", "sectionName"), "Select Any one", new { @class = "form-control", required = "required" })
-            <label>Select Smester </label>           @Html.DropDownList("tids", new SelectList(ViewBag.termname, "id", "TermName"), "Select Any one", new { @class = "form-control", required = "required" })*@
+                @Html.DropDownList("sid", new SelectList(ViewBag.section, " id", "sectionName"), "Select Any one", new { @class = "form-control", required = "required" })
+                <label>Select Smester </label>           @Html.DropDownList("tids", new SelectList(ViewBag.termname, "id", "TermName"), "Select Any one", new { @class = "form-control", required = "required" })*@
 
         </table>
         <div class="form-group">

@@ -242,6 +242,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>allsemester.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dataset\ClassMarksList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassMarksList.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -306,6 +311,13 @@
     </Compile>
     <Compile Include="reportsform\AllSemesterRecord.aspx.designer.cs">
       <DependentUpon>AllSemesterRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportsform\ClassResultlist.aspx.cs">
+      <DependentUpon>ClassResultlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportsform\ClassResultlist.aspx.designer.cs">
+      <DependentUpon>ClassResultlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportsform\ClassStatuslocalV.aspx.cs">
       <DependentUpon>ClassStatuslocalV.aspx</DependentUpon>
@@ -502,6 +514,7 @@
     <Content Include="LoginTheme\vendor\select2\select2.min.css" />
     <Content Include="LoginTheme\vendor\select2\select2.min.js" />
     <Content Include="reportsform\AllSemesterRecord.aspx" />
+    <Content Include="reportsform\ClassResultlist.aspx" />
     <Content Include="reportsform\ClassStatuslocalV.aspx" />
     <Content Include="reportsform\ClassStatusSharedV.aspx" />
     <Content Include="reportsform\FinePrint.aspx" />
@@ -552,6 +565,17 @@
     </None>
     <Content Include="Dataset\allsemester.xss">
       <DependentUpon>allsemester.xsd</DependentUpon>
+    </Content>
+    <Content Include="Dataset\ClassMarksList.xsc">
+      <DependentUpon>ClassMarksList.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\ClassMarksList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClassMarksList.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\ClassMarksList.xss">
+      <DependentUpon>ClassMarksList.xsd</DependentUpon>
     </Content>
     <None Include="Dataset\DataSet1.xsd">
       <SubType>Designer</SubType>
@@ -999,6 +1023,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Reports\ClassMarksList.rdlc" />
     <EmbeddedResource Include="Reports\AllSemesterRecord.rdlc" />
     <EmbeddedResource Include="Reports\ClassSharedVoucherV.rdlc" />
     <EmbeddedResource Include="Reports\FineprintController.rdlc" />

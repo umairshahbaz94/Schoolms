@@ -142,14 +142,14 @@ namespace SchoollManagementSystem.Controllers
         {
 
             var id = ResultSheetService.getResultSheet().Where(x => x.classesID == cboclass && x.SessionsID == cbosession &&
-             x.TermsID == cboterm && x.SectionID == cbosection && x.Subjectid == cbosubject).Select(x=>x.ID);
+             x.TermsID == cboterm && x.SectionID == cbosection && x.Subjectid == cbosubject).Select(x => x.ID);
 
 
-            if (id.Count()>0)
+            if (id.Count() > 0)
             {
-     
 
-                return RedirectToAction("Edit",new { cboclass, cbosection, cbosession, cbosubject, cboterm });
+
+                return RedirectToAction("Edit", new { cboclass, cbosection, cbosession, cbosubject, cboterm });
 
             }
             else
@@ -291,8 +291,8 @@ namespace SchoollManagementSystem.Controllers
                 ResultSheetService.updateResultSheet(resultSheet);
                 sMSContext.SaveChanges();
 
-               }
-        
+            }
+
 
 
             return RedirectToAction("FindallStudentResults");
@@ -302,7 +302,7 @@ namespace SchoollManagementSystem.Controllers
         public ActionResult AddResult(FormCollection fc)
 
         {
-            
+
             //string[] ids = fc["classid"].Split(',');
             string[] ids = fc["AssignmentMakrs"].Split(',');
             string[] roll = fc["rollno"].Split(',');
@@ -331,30 +331,30 @@ namespace SchoollManagementSystem.Controllers
 
             {
                 ResultSheet resultSheet = new ResultSheet();
-                
-                    resultSheet.AssignmentMakrs = Convert.ToInt32(tuple.Item1);
-                    resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
-                    resultSheet.MidMarks = Convert.ToInt32(tuple.Item3);
-                    resultSheet.TermsID = terms;
-                    resultSheet.classesID = clases;
-                    resultSheet.SectionID = secs;
-                    resultSheet.SessionsID = sess;
-                    resultSheet.FinalTerm = 10;
-                    resultSheet.Subjectid = subs;
-                    resultSheet.AddDetails = DateTime.Now;
-                    SMSContext sMSContext = new SMSContext();
-                    sMSContext.ResultSheet.Add(resultSheet);
-                    sMSContext.SaveChanges();
-              
 
-                                    }
+                resultSheet.AssignmentMakrs = Convert.ToInt32(tuple.Item1);
+                resultSheet.Studentid = Convert.ToInt32(tuple.Item2);
+                resultSheet.MidMarks = Convert.ToInt32(tuple.Item3);
+                resultSheet.TermsID = terms;
+                resultSheet.classesID = clases;
+                resultSheet.SectionID = secs;
+                resultSheet.SessionsID = sess;
+                resultSheet.FinalTerm = 10;
+                resultSheet.Subjectid = subs;
+                resultSheet.AddDetails = DateTime.Now;
+                SMSContext sMSContext = new SMSContext();
+                sMSContext.ResultSheet.Add(resultSheet);
+                sMSContext.SaveChanges();
 
-            
+
+            }
+
+
 
             return RedirectToAction("FindallStudentResults");
         }
 
-    
+
         public ActionResult FindclassResult()
         {
             ViewBag.session = sessionservice.getsession().ToList();
@@ -370,7 +370,7 @@ namespace SchoollManagementSystem.Controllers
         public ActionResult ClassStudentList(int cboclass, int cbosession, int cboterm, int cbosection, int cbosubject)
 
         {
-            ViewBag.id = cboclass + "&" + cboterm + "&" + cbosubject;
+            ViewBag.id="cboclass="+cboclass+"&"+"cboterm="+cboterm+"&"+"cbosection="+cbosection+"&"+"cbosubject="+cbosubject+"&"+"cbosession="+cbosession;
             ViewBag.subjectname = Subjectservice.getSubjects().Where(x => x.Id == cbosubject).Select(x => x.SubjectName).SingleOrDefault();
             ViewBag.classname = classservice.getclasses().Where(x => x.ID == cboclass).Select(x => x.classname).SingleOrDefault();
             ViewBag.section = sectionservice.getsection().Where(x => x.id == cbosection).Select(y => y.sectionName).SingleOrDefault();
