@@ -391,6 +391,16 @@ namespace SchoollManagementSystem.Controllers
                        };
             return View(list);
         }
+        public ActionResult gradereport()
+        {
+            var list = configfilesService.getconfigfile();
+
+                   
+                
+
+
+            return View();
+                }
     }
 }
 

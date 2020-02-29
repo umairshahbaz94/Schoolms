@@ -262,6 +262,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>fineprint.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dataset\Gradepro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gradepro.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\HeadVoucherDetails.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -339,6 +344,13 @@
     </Compile>
     <Compile Include="reportsform\FinePrint.aspx.designer.cs">
       <DependentUpon>FinePrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportsform\Grade.aspx.cs">
+      <DependentUpon>Grade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportsform\Grade.aspx.designer.cs">
+      <DependentUpon>Grade.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportsform\HeadDetails.aspx.cs">
       <DependentUpon>HeadDetails.aspx</DependentUpon>
@@ -518,6 +530,7 @@
     <Content Include="reportsform\ClassStatuslocalV.aspx" />
     <Content Include="reportsform\ClassStatusSharedV.aspx" />
     <Content Include="reportsform\FinePrint.aspx" />
+    <Content Include="reportsform\Grade.aspx" />
     <Content Include="reportsform\HeadDetails.aspx" />
     <Content Include="reportsform\StudentResultterm.aspx" />
     <Content Include="reportsform\VoucherV1.aspx" />
@@ -609,6 +622,17 @@
     </None>
     <Content Include="Dataset\fineprint.xss">
       <DependentUpon>fineprint.xsd</DependentUpon>
+    </Content>
+    <Content Include="Dataset\Gradepro.xsc">
+      <DependentUpon>Gradepro.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\Gradepro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Gradepro.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\Gradepro.xss">
+      <DependentUpon>Gradepro.xsd</DependentUpon>
     </Content>
     <None Include="Dataset\HeadVoucherDetails.xsd">
       <SubType>Designer</SubType>
@@ -1030,6 +1054,7 @@
     <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Reports\Report3.rdlc" />
     <EmbeddedResource Include="Reports\Report4.rdlc" />
+    <EmbeddedResource Include="Reports\Report5.rdlc" />
     <EmbeddedResource Include="Reports\StudenFessV.rdlc" />
     <EmbeddedResource Include="Reports\VoucherV1.rdlc" />
     <EmbeddedResource Include="Reports\Voucherv2.rdlc" />

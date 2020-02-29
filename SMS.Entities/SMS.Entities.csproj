@@ -89,6 +89,7 @@
     <Compile Include="Studentclassresult.cs" />
     <Compile Include="StudentFeesStatus.cs" />
     <Compile Include="StudentfeesStatusmodel.cs" />
+    <Compile Include="Studentgrade.cs" />
     <Compile Include="SubHead2Code.cs" />
     <Compile Include="classes.cs" />
     <Compile Include="classesStudentMapping.cs" />
