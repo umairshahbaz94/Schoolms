@@ -34,11 +34,11 @@ namespace SchoollManagementSystem.reportsform
             SqlParameter terms = new SqlParameter("@tid",term);
             SqlParameter sections = new SqlParameter("@seid", sectionid);
             SqlParameter sessionids = new SqlParameter("@sessid", sessionid);
-            //SqlParameter subjectids = new SqlParameter("@subid",subjectid);
+           
             SqlParameter studentids = new SqlParameter("@student",studendid);
 
             var list = obj.Database.SqlQuery<Studentgrade>("GradeProc @cid,@tid," +
-                "@seid,@sessid,@subid,@student", 
+                "@seid,@sessid,@student", 
                 classes, terms, sections,sessionids/*,subjectid*/, studentids).ToList();
             ReportDataSource rd = new ReportDataSource("DataSet1", list);
             ReportViewer1.LocalReport.DataSources.Add(rd);

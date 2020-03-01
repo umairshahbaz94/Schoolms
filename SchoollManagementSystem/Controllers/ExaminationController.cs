@@ -371,6 +371,7 @@ namespace SchoollManagementSystem.Controllers
 
         {
             ViewBag.id="cboclass="+cboclass+"&"+"cboterm="+cboterm+"&"+"cbosection="+cbosection+"&"+"cbosubject="+cbosubject+"&"+"cbosession="+cbosession;
+            @ViewBag.reid ="cid="+cboclass+"&"+"tid="+cboterm+"&"+"seid="+cbosection+"&"+"cbosubject="+cbosubject+"&"+"sessid="+cbosession;
             ViewBag.subjectname = Subjectservice.getSubjects().Where(x => x.Id == cbosubject).Select(x => x.SubjectName).SingleOrDefault();
             ViewBag.classname = classservice.getclasses().Where(x => x.ID == cboclass).Select(x => x.classname).SingleOrDefault();
             ViewBag.section = sectionservice.getsection().Where(x => x.id == cbosection).Select(y => y.sectionName).SingleOrDefault();

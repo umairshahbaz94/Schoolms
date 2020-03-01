@@ -22,6 +22,8 @@ namespace SMS.Entities
         public DateTime ? AddDetails{ get; set; }
         public DateTime ? Deletedetails { get; set; }
         public DateTime? Updatedetails { get; set; }
+        public string Grade { get; set; }
+        public decimal Point  { get; set; }
 
 
     }

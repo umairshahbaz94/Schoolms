@@ -127,6 +127,10 @@
     <Compile Include="Migrations\202002101909454_updateresultsheet.Designer.cs">
       <DependentUpon>202002101909454_updateresultsheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003011916335_changeresultsheet.cs" />
+    <Compile Include="Migrations\202003011916335_changeresultsheet.Designer.cs">
+      <DependentUpon>202003011916335_changeresultsheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SMSContext.cs" />
@@ -197,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002101909454_updateresultsheet.resx">
       <DependentUpon>202002101909454_updateresultsheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011916335_changeresultsheet.resx">
+      <DependentUpon>202003011916335_changeresultsheet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

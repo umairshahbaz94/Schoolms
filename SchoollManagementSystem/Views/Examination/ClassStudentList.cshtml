@@ -93,8 +93,9 @@
                                 <span class="fas fa-list mr-2"></span>
 
                             </a>
-                            @*<a href="~/reportsform/Grade.aspx?cid=@item.Classes.ID&tid=@item.term.id&seid=@item.section.id&sessid=@item.session.ID&student=@item.student.ID" class="btn btn-success"><span class="fa fa-print">Semester Result </span></a>*@
-                           
+
+                            |
+                            <a href="~/reportsform/Grade.aspx/?@ViewBag.reid&student=@item.student.ID" class="btn btn-danger"> Print Semester Result</a>
 
 
 

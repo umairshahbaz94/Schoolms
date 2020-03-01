@@ -279,7 +279,7 @@ namespace SchoollManagementSystem.Dataset {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class GradeProcDataTable : global::System.Data.TypedTableBase<GradeProcRow> {
             
-            private global::System.Data.DataColumn columnTotal;
+            private global::System.Data.DataColumn columntotal;
             
             private global::System.Data.DataColumn columnName;
             
@@ -293,9 +293,9 @@ namespace SchoollManagementSystem.Dataset {
             
             private global::System.Data.DataColumn columnTermName;
             
-            private global::System.Data.DataColumn columnPoint;
-            
             private global::System.Data.DataColumn columnStudentid;
+            
+            private global::System.Data.DataColumn columnpoint;
             
             private global::System.Data.DataColumn columngrade;
             
@@ -334,9 +334,9 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TotalColumn {
+            public global::System.Data.DataColumn totalColumn {
                 get {
-                    return this.columnTotal;
+                    return this.columntotal;
                 }
             }
             
@@ -390,17 +390,17 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PointColumn {
+            public global::System.Data.DataColumn StudentidColumn {
                 get {
-                    return this.columnPoint;
+                    return this.columnStudentid;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn StudentidColumn {
+            public global::System.Data.DataColumn pointColumn {
                 get {
-                    return this.columnStudentid;
+                    return this.columnpoint;
                 }
             }
             
@@ -449,18 +449,18 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public GradeProcRow AddGradeProcRow(decimal Total, string Name, string sectionName, string SubjectName, string classname, string Sessionname, string TermName, decimal Point, int Studentid, string grade) {
+            public GradeProcRow AddGradeProcRow(decimal total, string Name, string sectionName, string SubjectName, string classname, string Sessionname, string TermName, int Studentid, decimal point, string grade) {
                 GradeProcRow rowGradeProcRow = ((GradeProcRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Total,
+                        total,
                         Name,
                         sectionName,
                         SubjectName,
                         classname,
                         Sessionname,
                         TermName,
-                        Point,
                         Studentid,
+                        point,
                         grade};
                 rowGradeProcRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGradeProcRow);
@@ -484,23 +484,23 @@ namespace SchoollManagementSystem.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnTotal = base.Columns["Total"];
+                this.columntotal = base.Columns["total"];
                 this.columnName = base.Columns["Name"];
                 this.columnsectionName = base.Columns["sectionName"];
                 this.columnSubjectName = base.Columns["SubjectName"];
                 this.columnclassname = base.Columns["classname"];
                 this.columnSessionname = base.Columns["Sessionname"];
                 this.columnTermName = base.Columns["TermName"];
-                this.columnPoint = base.Columns["Point"];
                 this.columnStudentid = base.Columns["Studentid"];
+                this.columnpoint = base.Columns["point"];
                 this.columngrade = base.Columns["grade"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
                 this.columnsectionName = new global::System.Data.DataColumn("sectionName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -513,21 +513,21 @@ namespace SchoollManagementSystem.Dataset {
                 base.Columns.Add(this.columnSessionname);
                 this.columnTermName = new global::System.Data.DataColumn("TermName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTermName);
-                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPoint);
                 this.columnStudentid = new global::System.Data.DataColumn("Studentid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudentid);
+                this.columnpoint = new global::System.Data.DataColumn("point", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpoint);
                 this.columngrade = new global::System.Data.DataColumn("grade", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngrade);
-                this.columnTotal.ReadOnly = true;
+                this.columntotal.ReadOnly = true;
                 this.columnName.MaxLength = 2147483647;
                 this.columnsectionName.MaxLength = 2147483647;
                 this.columnSubjectName.MaxLength = 2147483647;
                 this.columnclassname.MaxLength = 2147483647;
                 this.columnSessionname.MaxLength = 2147483647;
                 this.columnTermName.MaxLength = 2147483647;
-                this.columnPoint.AllowDBNull = false;
                 this.columnStudentid.AllowDBNull = false;
+                this.columnpoint.AllowDBNull = false;
                 this.columngrade.MaxLength = 2147483647;
             }
             
@@ -671,17 +671,17 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Total {
+            public decimal total {
                 get {
                     try {
-                        return ((decimal)(this[this.tableGradeProc.TotalColumn]));
+                        return ((decimal)(this[this.tableGradeProc.totalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'GradeProc\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'GradeProc\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGradeProc.TotalColumn] = value;
+                    this[this.tableGradeProc.totalColumn] = value;
                 }
             }
             
@@ -783,23 +783,23 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Point {
-                get {
-                    return ((decimal)(this[this.tableGradeProc.PointColumn]));
-                }
-                set {
-                    this[this.tableGradeProc.PointColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Studentid {
                 get {
                     return ((int)(this[this.tableGradeProc.StudentidColumn]));
                 }
                 set {
                     this[this.tableGradeProc.StudentidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal point {
+                get {
+                    return ((decimal)(this[this.tableGradeProc.pointColumn]));
+                }
+                set {
+                    this[this.tableGradeProc.pointColumn] = value;
                 }
             }
             
@@ -821,14 +821,14 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTotalNull() {
-                return this.IsNull(this.tableGradeProc.TotalColumn);
+            public bool IstotalNull() {
+                return this.IsNull(this.tableGradeProc.totalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTotalNull() {
-                this[this.tableGradeProc.TotalColumn] = global::System.Convert.DBNull;
+            public void SettotalNull() {
+                this[this.tableGradeProc.totalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1075,15 +1075,15 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "GradeProc";
-            tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("total", "total");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("sectionName", "sectionName");
             tableMapping.ColumnMappings.Add("SubjectName", "SubjectName");
             tableMapping.ColumnMappings.Add("classname", "classname");
             tableMapping.ColumnMappings.Add("Sessionname", "Sessionname");
             tableMapping.ColumnMappings.Add("TermName", "TermName");
-            tableMapping.ColumnMappings.Add("Point", "Point");
             tableMapping.ColumnMappings.Add("Studentid", "Studentid");
+            tableMapping.ColumnMappings.Add("point", "point");
             tableMapping.ColumnMappings.Add("grade", "grade");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -1108,7 +1108,6 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@seid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sessid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@student", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1116,7 +1115,7 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Gradepro.GradeProcDataTable dataTable, global::System.Nullable<int> cid, global::System.Nullable<int> tid, global::System.Nullable<int> seid, global::System.Nullable<int> sessid, global::System.Nullable<int> subid, global::System.Nullable<int> student) {
+        public virtual int Fill(Gradepro.GradeProcDataTable dataTable, global::System.Nullable<int> cid, global::System.Nullable<int> tid, global::System.Nullable<int> seid, global::System.Nullable<int> sessid, global::System.Nullable<int> student) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((cid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(cid.Value));
@@ -1142,17 +1141,11 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((subid.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((int)(subid.Value));
+            if ((student.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((int)(student.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((student.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[6].Value = ((int)(student.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1165,7 +1158,7 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Gradepro.GradeProcDataTable GetData(global::System.Nullable<int> cid, global::System.Nullable<int> tid, global::System.Nullable<int> seid, global::System.Nullable<int> sessid, global::System.Nullable<int> subid, global::System.Nullable<int> student) {
+        public virtual Gradepro.GradeProcDataTable GetData(global::System.Nullable<int> cid, global::System.Nullable<int> tid, global::System.Nullable<int> seid, global::System.Nullable<int> sessid, global::System.Nullable<int> student) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((cid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(cid.Value));
@@ -1191,17 +1184,11 @@ namespace SchoollManagementSystem.Dataset.GradeproTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((subid.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((int)(subid.Value));
+            if ((student.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((int)(student.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((student.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[6].Value = ((int)(student.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             Gradepro.GradeProcDataTable dataTable = new Gradepro.GradeProcDataTable();
             this.Adapter.Fill(dataTable);
