@@ -289,6 +289,10 @@ namespace SchoollManagementSystem.Dataset {
             
             private global::System.Data.DataColumn columnsectionName;
             
+            private global::System.Data.DataColumn columnGrade;
+            
+            private global::System.Data.DataColumn columnPoint;
+            
             private global::System.Data.DataColumn columnclassname;
             
             private global::System.Data.DataColumn columnSessionname;
@@ -374,6 +378,22 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GradeColumn {
+                get {
+                    return this.columnGrade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PointColumn {
+                get {
+                    return this.columnPoint;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn classnameColumn {
                 get {
                     return this.columnclassname;
@@ -449,7 +469,7 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public classMarkslistRow AddclassMarkslistRow(string Name, string RollNo, string SubjectName, string TermName, string sectionName, string classname, string Sessionname, decimal AssignmentMakrs, decimal FinalTerm, decimal MidMarks) {
+            public classMarkslistRow AddclassMarkslistRow(string Name, string RollNo, string SubjectName, string TermName, string sectionName, string Grade, decimal Point, string classname, string Sessionname, decimal AssignmentMakrs, decimal FinalTerm, decimal MidMarks) {
                 classMarkslistRow rowclassMarkslistRow = ((classMarkslistRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -457,6 +477,8 @@ namespace SchoollManagementSystem.Dataset {
                         SubjectName,
                         TermName,
                         sectionName,
+                        Grade,
+                        Point,
                         classname,
                         Sessionname,
                         AssignmentMakrs,
@@ -489,6 +511,8 @@ namespace SchoollManagementSystem.Dataset {
                 this.columnSubjectName = base.Columns["SubjectName"];
                 this.columnTermName = base.Columns["TermName"];
                 this.columnsectionName = base.Columns["sectionName"];
+                this.columnGrade = base.Columns["Grade"];
+                this.columnPoint = base.Columns["Point"];
                 this.columnclassname = base.Columns["classname"];
                 this.columnSessionname = base.Columns["Sessionname"];
                 this.columnAssignmentMakrs = base.Columns["AssignmentMakrs"];
@@ -509,6 +533,10 @@ namespace SchoollManagementSystem.Dataset {
                 base.Columns.Add(this.columnTermName);
                 this.columnsectionName = new global::System.Data.DataColumn("sectionName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsectionName);
+                this.columnGrade = new global::System.Data.DataColumn("Grade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrade);
+                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPoint);
                 this.columnclassname = new global::System.Data.DataColumn("classname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnclassname);
                 this.columnSessionname = new global::System.Data.DataColumn("Sessionname", typeof(string), null, global::System.Data.MappingType.Element);
@@ -524,6 +552,8 @@ namespace SchoollManagementSystem.Dataset {
                 this.columnSubjectName.MaxLength = 2147483647;
                 this.columnTermName.MaxLength = 2147483647;
                 this.columnsectionName.MaxLength = 2147483647;
+                this.columnGrade.MaxLength = 2147483647;
+                this.columnPoint.AllowDBNull = false;
                 this.columnclassname.MaxLength = 2147483647;
                 this.columnSessionname.MaxLength = 2147483647;
                 this.columnAssignmentMakrs.AllowDBNull = false;
@@ -751,6 +781,33 @@ namespace SchoollManagementSystem.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Grade {
+                get {
+                    try {
+                        return ((string)(this[this.tableclassMarkslist.GradeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Grade\' in table \'classMarkslist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableclassMarkslist.GradeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Point {
+                get {
+                    return ((decimal)(this[this.tableclassMarkslist.PointColumn]));
+                }
+                set {
+                    this[this.tableclassMarkslist.PointColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string classname {
                 get {
                     try {
@@ -872,6 +929,18 @@ namespace SchoollManagementSystem.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetsectionNameNull() {
                 this[this.tableclassMarkslist.sectionNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsGradeNull() {
+                return this.IsNull(this.tableclassMarkslist.GradeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetGradeNull() {
+                this[this.tableclassMarkslist.GradeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1063,6 +1132,8 @@ namespace SchoollManagementSystem.Dataset.ClassMarksListTableAdapters {
             tableMapping.ColumnMappings.Add("SubjectName", "SubjectName");
             tableMapping.ColumnMappings.Add("TermName", "TermName");
             tableMapping.ColumnMappings.Add("sectionName", "sectionName");
+            tableMapping.ColumnMappings.Add("Grade", "Grade");
+            tableMapping.ColumnMappings.Add("Point", "Point");
             tableMapping.ColumnMappings.Add("classname", "classname");
             tableMapping.ColumnMappings.Add("Sessionname", "Sessionname");
             tableMapping.ColumnMappings.Add("AssignmentMakrs", "AssignmentMakrs");
