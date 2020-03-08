@@ -18,5 +18,7 @@ namespace SMS.Entities
         public decimal AssignmentMakrs { get; set; }
         public decimal FinalTerm { get; set; }
         public decimal MidMarks { get; set; }
+        public string Grade { get; set; }
+        public decimal Point { get; set; }
     }
 }
