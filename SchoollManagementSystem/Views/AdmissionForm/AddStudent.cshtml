@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.mainheading = "student";
+}
+
+<!-- Admit Form Area Start Here -->
+
+<div class="heading-layout1">
+    <div class="item-title">
+        <h3>Add New @ViewBag.mainheading </h3>
+    </div>
+
+</div>
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row ">
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Roll No</label>
+            <input type="text" placeholder="Roll No" name="RollNo" class="form-control">
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>First Name *</label>
+            <input type="text" placeholder="Name" name="Name" class="form-control">
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Last Name *</label>
+            <input type="text" placeholder="FatherName" name="FatherName" class="form-control">
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Date Of Birth *</label>
+            <input type="Date" placeholder="dd/mm/yyyy" name="AdmissionDate" class="form-control "
+                   data-position='bottom right'>
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Whatsapp Number</label>
+            <input type="text" placeholder="WhatsappNumber" name="whatsappNumber" class="form-control "
+                   data-position='bottom right'>
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label> AdmissionFormNo  *</label>
+            <input type="text" placeholder="AdmissionFormNo" name="AdmissionFormNo" class="form-control "
+                   data-position='bottom right'>
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="Email" name="Email" class="form-control"
+                   data-position='bottom right'>
+
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label> Gender*</label>
+            <div class="radio">
+
+                <label>
+
+                    <input type="radio" name="Gender" id="Radios1" value="Male">
+
+                    Male
+
+                </label>
+
+            </div>
+
+            <div class="radio">
+
+                <label>
+
+                    <input type="radio" name="Gender" id="Radios2" value="Female">
+
+                    Female
+
+                </label>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Phone</label>
+            <input type="text" placeholder="Number" name="Number" class="form-control">
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>Address</label>
+            <input type="text" placeholder="Address" name="Address" class="form-control">
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12 form-group">
+            <label>admissionimage</label>
+            <input type="file" name="imagefile" id="stdimg" class="form-control">
+
+        </div>
+        <input type="hidden" value="" id="picidssave" name="picid" />
+        <div id="picarea">
+
+            <img />
+        </div>
+
+        @*<div class="col-lg-6 col-12 form-group mg-t-30">
+                <label class="text-dark-medium">upload student photo (150px x 150px)</label>
+                <input type="file" class="form-control-file">
+            </div>*@
+        <div class="col-12 form-group mg-t-8">
+            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Next>></button>
+
+        </div>
+    </div>
+}
+
+<!-- Admit Form Area End Here -->
+<div id="imagetemp">
+    <img src="" class="img-fluid" style="width:200px" onclick="removeMe(this) " />
+</div>
+
+
+
+@section scripts
+{
+    <script>
+    $("#stdimg").change(function () {
+
+
+
+
+
+        var pic = this.files;
+        var formdata = new FormData();
+        for (var i = 0; i < pic.length; i++)
+        {
+            formdata.append("pics" ,pic[i]);
+        }
+
+
+        $.ajax({
+            url:'@Url.Action("uploadpics", "Student")',
+            type:"post",
+            data: formdata,
+            contentType: false,
+            processData: false,
+        })
+            .done(function (response) {
+                debugger;
+                for (var i = 0; i < response.length; i++) {
+
+                    var picget = response[i];
+                    var $imgclone = $("#imagetemp").clone();
+                    $imgclone.find("img").attr("src", "/images/" + picget.url);
+                    $imgclone.find("img").attr("data-id", + picget.id);
+                    $("#picarea").append($imgclone.html());
+
+
+                }
+
+                var pictureid = [];
+
+                $("#picarea img").each(function ()
+                {
+
+                    var imgid = $(this).attr("data-id");
+                    pictureid.push(imgid);
+
+
+                });
+                $("#picidssave").val(pictureid.join());
+
+
+
+               });
+    });
+
+    function removeMe(elments) {
+        elments.remove();
+
+    }
+    </script>
+
+
+
+}
